@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Rub&eacute;n David Barrios Bello | CV Data Analyst &amp; Business Intelligence</title>
+  <meta name="description" content="CV de Rub&eacute;n David Barrios Bello - Data Analyst, Business Intelligence, Prevenci&oacute;n de Fraudes y Finanzas.">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #64748b;
+      --primary: #1d4ed8;
+      --primary-light: #eff6ff;
+      --primary-border: #bfdbfe;
+      --accent: #0284c7;
+      --tag-bg: #f1f5f9;
+      --tag-border: #cbd5e1;
+      --tag-text: #334155;
+      --kpi-bg: #f8fafc;
+      --kpi-border: #e2e8f0;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --primary: #3b82f6;
+      --primary-light: rgba(59, 130, 246, 0.12);
+      --primary-border: rgba(59, 130, 246, 0.3);
+      --accent: #38bdf8;
+      --tag-bg: #1f2937;
+      --tag-border: #374151;
+      --tag-text: #e5e7eb;
+      --kpi-bg: #161f30;
+      --kpi-border: #1f2a3e;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.55;
+      padding: 20px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .cv-wrapper {
+      width: 100%;
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Floating Toolbar / Header Controls */
+    .top-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    [data-theme="dark"] .status-badge {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tool-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-main);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .tool-btn:hover {
+      background: var(--primary-light);
+      border-color: var(--primary-border);
+      color: var(--primary);
+    }
+
+    /* Header Profile Card */
+    .header-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar-img {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+      background-color: var(--tag-bg);
+    }
+
+    .header-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex-grow: 1;
+    }
+
+    .name-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .role-headline {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 2px;
+    }
+
+    .location-tag {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 2px;
+    }
+
+    /* Contact Chips Grid */
+    .contact-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .chip-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      color: var(--tag-text);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .chip-link:hover {
+      background: var(--primary-light);
+      border-color: var(--primary-border);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+    .chip-primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff !important;
+    }
+    .chip-primary:hover {
+      background: #1e40af;
+      color: #ffffff !important;
+    }
+
+    /* KPI Highlights Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .kpi-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      box-shadow: var(--shadow);
+    }
+
+    .kpi-value {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .kpi-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+    }
+
+    .kpi-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--card-border);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title svg {
+      color: var(--primary);
+    }
+
+    /* Experience Items */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .exp-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-left: 12px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .exp-role {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .exp-date {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .exp-company {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .exp-bullets li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 16px;
+    }
+    .exp-bullets li::before {
+      content: "&bull;";
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.1rem;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+
+    .highlight-pill {
+      display: inline-block;
+      margin-top: 4px;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #059669;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    [data-theme="dark"] .highlight-pill {
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.18);
+    }
+
+    /* Skills Badges */
+    .skills-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .skills-category-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .skills-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .skill-badge {
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--tag-bg);
+      border: 1px solid var(--tag-border);
+      color: var(--tag-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .skill-badge.featured {
+      background: var(--primary-light);
+      border-color: var(--primary-border);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+    }
+
+    .project-card {
+      background: var(--kpi-bg);
+      border: 1px solid var(--kpi-border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .project-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .project-tags {
+      font-size: 0.72rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Footer / References */
+    .footer-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      padding: 10px 0;
+    }
+
+    /* PRINT STYLES - ATS / HR Friendly */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+        font-size: 10pt !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .cv-wrapper {
+        max-width: 100% !important;
+        gap: 10px !important;
+      }
+      .header-card, .section-card, .kpi-box, .project-card {
+        box-shadow: none !important;
+        border: 1px solid #cbd5e1 !important;
+        background: #ffffff !important;
+        padding: 12px !important;
+        break-inside: avoid;
+      }
+      .name-title {
+        color: #000000 !important;
+      }
+      .role-headline, .kpi-value, .exp-role, .section-title, .section-title svg {
+        color: #1e3a8a !important;
+      }
+      .exp-date {
+        background: transparent !important;
+        color: #000000 !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+      .skill-badge {
+        background: transparent !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #000000 !important;
+      }
+      .chip-link {
+        border: 1px solid #94a3b8 !important;
+        background: transparent !important;
+        color: #000000 !important;
+      }
+      a {
+        color: #000000 !important;
+        text-decoration: none !important;
+      }
+    }
+
+    /* Mobile Responsive adjustments */
+    @media (max-width: 680px) {
+      body {
+        padding: 12px 8px;
+      }
+      .header-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 18px 14px;
+      }
+      .avatar-img {
+        width: 96px;
+        height: 96px;
+      }
+      .contact-chips {
+        justify-content: center;
+      }
+      .location-tag {
+        justify-content: center;
+      }
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .section-card {
+        padding: 16px 14px;
+      }
+      .exp-header {
+        flex-direction: column;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-wrapper">
+
+    <!-- Top Action Bar (hidden on print) -->
+    <div class="top-toolbar no-print">
+      <div class="status-badge">
+        <span class="pulse-dot"></span>
+        <span>Disponible para roles de Data Analyst &amp; BI</span>
+      </div>
+      <div class="toolbar-actions">
+        <button class="tool-btn" onclick="toggleTheme()" title="Cambiar tema">
+          <span id="themeIcon">&#127769;</span> <span id="themeText">Modo Oscuro</span>
+        </button>
+        <button class="tool-btn" onclick="window.print()" title="Imprimir o guardar como PDF">
+          &#128424; Imprimir / Guardar PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Header Profile Card -->
+    <header class="header-card">
+      <img src="data:image/jpeg;base64,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" alt="Rub&eacute;n David Barrios Bello" class="avatar-img">
+      <div class="header-info">
+                <div style="display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border-radius:999px; font-size:0.75rem; font-weight:800; background:linear-gradient(135deg, rgba(14,165,233,0.18) 0%, rgba(37,99,235,0.25) 100%); border:1.5px solid #0284c7; color:#0284c7; margin-bottom:6px;">
+          <span>&#128202;</span> <span>CV Inteligente | Dashboard Ejecutivo</span>
+        </div>
+        <h1 class="name-title">Rub&eacute;n David Barrios Bello</h1>
+        <div class="role-headline">Data Analyst | Business Intelligence | Fraud Prevention | Lic. en Banca y Finanzas</div>
+        <div class="location-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Parque Patricios, CABA &mdash; Buenos Aires, Argentina
+        </div>
+
+        <!-- Contact links -->
+        <div class="contact-chips">
+          <a href="https://wa.me/5491170259429" target="_blank" class="chip-link chip-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            +54 9 11 7025-9429 (WhatsApp)
+          </a>
+          <a href="mailto:rubendavid1809@gmail.com" class="chip-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            rubendavid1809@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/ruben-barrios-1430712ab" target="_blank" class="chip-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/rubenbarrios-bigdata" target="_blank" class="chip-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            GitHub
+          </a>
+          <a href="https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/" target="_blank" class="chip-link chip-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            CV Web Interactivo
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Key Metrics / KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-box">
+        <span class="kpi-value">-80%</span>
+        <span class="kpi-label">Ratio Fraude</span>
+        <span class="kpi-sub">0,150% a 0,030%</span>
+      </div>
+      <div class="kpi-box">
+        <span class="kpi-value">+4 A&ntilde;os</span>
+        <span class="kpi-label">Prevenci&oacute;n Fraude</span>
+        <span class="kpi-sub">E-Commerce &amp; Log&iacute;stica</span>
+      </div>
+      <div class="kpi-box">
+        <span class="kpi-value">+15 A&ntilde;os</span>
+        <span class="kpi-label">Sector Bancario</span>
+        <span class="kpi-sub">Comex &amp; Finanzas</span>
+      </div>
+      <div class="kpi-box">
+        <span class="kpi-value">9 Proyectos</span>
+        <span class="kpi-label">Portafolio</span>
+        <span class="kpi-sub">BI, SQL, Python, GA4</span>
+      </div>
+    </div>
+
+    <!-- Perfil Profesional -->
+    <section class="section-card">
+      <h2 class="section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        Resumen Profesional
+      </h2>
+      <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+        <strong>Analista de Datos</strong> con m&aacute;s de <strong>4 a&ntilde;os de experiencia en an&aacute;lisis de m&eacute;tricas de fraude</strong> en los sectores de log&iacute;stica y e-commerce (red de Mercado Libre), y m&aacute;s de <strong>15 a&ntilde;os de s&oacute;lida trayectoria en el sector bancario</strong> (Comercio Exterior y Operaciones Internacionales).
+      </p>
+      <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;">
+        Combino una profunda comprensi&oacute;n del negocio financiero y operativo con herramientas t&eacute;cnicas como <strong>Power BI, SQL, Python y Excel avanzado</strong> para extraer, modelar y visualizar datos que sustentan decisiones basadas en evidencia. Asimismo, cuento con experiencia en anal&iacute;tica digital utilizando <strong>GTM, GA4, BigQuery, Firebase y Looker Studio</strong> para medici&oacute;n de eventos, comportamiento de usuarios y optimizaci&oacute;n de productos.
+      </p>
+    </section>
+
+    <!-- Experiencia Laboral -->
+    <section class="section-card">
+      <h2 class="section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        Experiencia Laboral
+      </h2>
+
+      <div class="timeline">
+
+        <!-- Exp 1: Webpack -->
+        <article class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Analista de Prevenci&oacute;n de Fraudes y Siniestros E-Commerce</span>
+            <span class="exp-date">Mar. 2020 &mdash; Oct. 2024</span>
+          </div>
+          <span class="exp-company">Webpack S.R.L. &mdash; Log&iacute;stica Mercado Libre | Buenos Aires, Argentina</span>
+          <ul class="exp-bullets">
+            <li>An&aacute;lisis de m&eacute;tricas de fraude y seguimiento continuo de KPIs mediante dashboards automatizados en <strong>Power BI y Excel avanzado</strong>, logrando reducci&oacute;n sostenida de p&eacute;rdidas econ&oacute;micas.</li>
+            <li>Dise&ntilde;o e implementaci&oacute;n de <strong>sistema de monitoreo de reclamos en tiempo real</strong>, posicionando a la empresa como la log&iacute;stica con el <strong>ratio de fraude m&aacute;s bajo del mercado log&iacute;stico</strong>.</li>
+            <li>Elaboraci&oacute;n de reportes ejecutivos para detecci&oacute;n de patrones at&iacute;picos, anomal&iacute;as y prevenci&oacute;n de contracargos.</li>
+            <li>Coordinaci&oacute;n interdepartamental con operaciones, mesa de ayuda y seguridad para optimizar protocolos de respuesta ante incidentes.</li>
+          </ul>
+          <div>
+            <span class="highlight-pill">&#11088; Logro Clave: Reducci&oacute;n del ratio de fraude de 0,150% a 0,030% (-80%), benchmark del mercado log&iacute;stico.</span>
+          </div>
+        </article>
+
+        <!-- Exp 2: Banco Fondo Común -->
+        <article class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Especialista de Comercio Exterior &mdash; VP Operaciones Internacionales</span>
+            <span class="exp-date">Jul. 2010 &mdash; Dic. 2017</span>
+          </div>
+          <span class="exp-company">BFC Banco Fondo Com&uacute;n | Caracas, Venezuela</span>
+          <ul class="exp-bullets">
+            <li>Gesti&oacute;n integral de importaciones mediante cartas de cr&eacute;dito, cobranzas documentarias y cartas de cr&eacute;dito avaladas.</li>
+            <li>Administraci&oacute;n de auxiliares contables, conciliaciones bancarias, auditor&iacute;a cambiaria y seguimiento normativo estricto.</li>
+          </ul>
+        </article>
+
+        <!-- Exp 3: Banco Exterior -->
+        <article class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Analista de Operaciones Internacionales &mdash; VP Operaciones Internacionales</span>
+            <span class="exp-date">Jun. 2006 &mdash; May. 2010</span>
+          </div>
+          <span class="exp-company">Banco Exterior S.A. | Caracas, Venezuela</span>
+          <ul class="exp-bullets">
+            <li>Procesamiento y control de transferencias y operaciones en moneda extranjera, liquidaci&oacute;n y trazabilidad de fondos.</li>
+          </ul>
+        </article>
+
+        <!-- Exp 4: Banco Venezolano de Crédito -->
+        <article class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">Analista de Compras / Representante de Ventas</span>
+            <span class="exp-date">Sep. 2002 &mdash; Mar. 2007</span>
+          </div>
+          <span class="exp-company">Banco Venezolano de Cr&eacute;dito | Caracas, Venezuela</span>
+          <ul class="exp-bullets">
+            <li>Manejo presupuestario, adquisici&oacute;n de activos y fidelizaci&oacute;n de clientes financieros con cumplimiento recurrente de objetivos.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Habilidades Técnicas -->
+    <section class="section-card">
+      <h2 class="section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+        Habilidades T&eacute;cnicas &amp; Herramientas
+      </h2>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="skills-group">
+          <span class="skills-category-title">An&aacute;lisis de Datos &amp; BI:</span>
+          <div class="skills-flex">
+            <span class="skill-badge featured">Power BI (DAX, Power Query, Data Modeling)</span>
+            <span class="skill-badge featured">SQL (Consultas complejas, Joins, Agregaciones)</span>
+            <span class="skill-badge featured">Python (pandas, NumPy, Matplotlib)</span>
+            <span class="skill-badge featured">Excel Avanzado &amp; Google Sheets</span>
+            <span class="skill-badge">ETL / Data Pipelines</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <span class="skills-category-title">Anal&iacute;tica Digital &amp; Cloud:</span>
+          <div class="skills-flex">
+            <span class="skill-badge featured">Google Tag Manager (GTM)</span>
+            <span class="skill-badge featured">Google Analytics 4 (GA4)</span>
+            <span class="skill-badge">Google BigQuery</span>
+            <span class="skill-badge">Looker Studio / Data Studio</span>
+            <span class="skill-badge">Firebase</span>
+            <span class="skill-badge">PostgreSQL &amp; Supabase</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <span class="skills-category-title">Especialidad de Negocio &amp; IA Aplicada:</span>
+          <div class="skills-flex">
+            <span class="skill-badge">Prevenci&oacute;n de Fraudes E-Commerce</span>
+            <span class="skill-badge">Comercio Exterior &amp; Finanzas Bancarias</span>
+            <span class="skill-badge">Auditor&iacute;a &amp; Conciliaciones</span>
+            <span class="skill-badge">Herramientas de IA: ChatGPT, Claude, Copilot, Gemini, Make</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos Destacados -->
+    <section class="section-card">
+      <h2 class="section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+        Proyectos de Datos Destacados
+      </h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div>
+            <div class="project-title">Mate-M&aacute;tico &mdash; Digital Analytics (Innova Lab)</div>
+            <div class="project-desc">Implementaci&oacute;n end-to-end de anal&iacute;tica digital con GTM, GA4, Firebase y Supabase. Dashboard de Looker Studio con m&eacute;tricas de retenci&oacute;n, engagement y progreso de usuarios embebido en app.</div>
+          </div>
+          <span class="project-tags">GTM &bull; GA4 &bull; Looker Studio &bull; PostgreSQL</span>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-title">Sistema de Prevenci&oacute;n de Fraude</div>
+            <div class="project-desc">Monitoreo transaccional de reclamos en e-commerce y log&iacute;stica, reduciendo el ratio de fraude un 80% con alertas tempranas.</div>
+          </div>
+          <span class="project-tags">Power BI &bull; Excel Avanzado &bull; Scoring</span>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-title">Dashboard de Gesti&oacute;n de RRHH</div>
+            <div class="project-desc">An&aacute;lisis multidimensional de headcount, rotaci&oacute;n de personal y evaluaci&oacute;n de performance para toma de decisiones ejecutivas.</div>
+          </div>
+          <span class="project-tags">Power BI &bull; DAX &bull; Modelado Dimensional</span>
+        </div>
+
+        <div class="project-card">
+          <div>
+            <div class="project-title">An&aacute;lisis Exploratorio de Datos (EDA)</div>
+            <div class="project-desc">Procesamiento de datasets masivos con Python para limpieza de datos, an&aacute;lisis de correlaci&oacute;n y visualizaciones estad&iacute;sticas.</div>
+          </div>
+          <span class="project-tags">Python &bull; pandas &bull; Matplotlib</span>
+        </div>
+      </div>
+      <div style="text-align: right; margin-top: 4px;">
+        <a href="https://github.com/rubenbarrios-bigdata" target="_blank" style="color: var(--primary); font-size: 0.85rem; font-weight: 700; text-decoration: none;">Ver todos los 9 proyectos en GitHub &rarr;</a>
+      </div>
+    </section>
+
+    <!-- Educación y Certificaciones -->
+    <section class="section-card">
+      <h2 class="section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+        Educaci&oacute;n &amp; Certificaciones
+      </h2>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+        <div>
+          <h3 style="font-size: 0.88rem; font-weight: 800; color: var(--primary); margin-bottom: 6px;">FORMACI&Oacute;N EN CURSO:</h3>
+          <ul class="exp-bullets">
+            <li><strong>Tecnicatura Superior en Ciencia de Datos e Inteligencia Artificial</strong> (Primer A&ntilde;o en curso).</li>
+            <li><strong>Power BI DevOps:</strong> PBIP, Git, CI/CD y Microsoft Fabric.</li>
+          </ul>
+
+          <h3 style="font-size: 0.88rem; font-weight: 800; color: var(--primary); margin-top: 12px; margin-bottom: 6px;">FORMACI&Oacute;N UNIVERSITARIA:</h3>
+          <ul class="exp-bullets">
+            <li><strong>Licenciatura en Administraci&oacute;n de Recursos Materiales y Financieros</strong> &mdash; Universidad Sim&oacute;n Rodr&iacute;guez.</li>
+            <li><strong>T.S.U. en Administraci&oacute;n de Recursos F&iacute;sicos y Financieros</strong> &mdash; Colegio Universitario Ferm&iacute;n Toro.</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 style="font-size: 0.88rem; font-weight: 800; color: var(--primary); margin-bottom: 6px;">CERTIFICACIONES DESTACADAS:</h3>
+          <ul class="exp-bullets">
+            <li><strong>Anal&iacute;tica Digital:</strong> Google Tag Manager, GA4 y Looker Studio.</li>
+            <li><strong>An&aacute;lisis de Datos:</strong> Excel, Power BI, SQL, Python (IPS DataX / WaveBI).</li>
+            <li><strong>Iniciaci&oacute;n a la Programaci&oacute;n con Python.</strong></li>
+            <li><strong>Fundamentos de Inteligencia Artificial</strong> &mdash; IBM SkillsBuild.</li>
+            <li><strong>IA Aplicada al Trabajo:</strong> ChatGPT, Copilot, Gemini, Make.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referencias Laborales -->
+    <section class="section-card">
+      <h2 class="section-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Referencias Profesionales
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px;">
+        <div style="font-size: 0.85rem; color: var(--text-muted); background: var(--tag-bg); padding: 10px 14px; border-radius: 8px;">
+          <strong style="color: var(--text-main); display: block;">Ismar Moreno</strong>
+          Gesti&oacute;n de Proyectos IT<br>
+          <a href="tel:1136776488" style="color: var(--primary); text-decoration: none; font-weight: 600;">Tel. 11-3677-6488</a>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-muted); background: var(--tag-bg); padding: 10px 14px; border-radius: 8px;">
+          <strong style="color: var(--text-main); display: block;">Cesar Sevayos</strong>
+          Developer IT<br>
+          <a href="tel:1128246254" style="color: var(--primary); text-decoration: none; font-weight: 600;">Tel. 11-2824-6254</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-note no-print">
+      Rub&eacute;n David Barrios Bello &bull; Data Analyst &amp; Business Intelligence &bull; Buenos Aires, Argentina
+    </footer>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme");
+      const target = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", target);
+      document.getElementById("themeIcon").innerHTML = target === "dark" ? "&#9728;&#65039;" : "&#127769;";
+      document.getElementById("themeText").textContent = target === "dark" ? "Modo Claro" : "Modo Oscuro";
+    }
+  </script>
+</body>
+</html>
