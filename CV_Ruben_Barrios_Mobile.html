@@ -3749,6 +3749,178 @@
 // =========================================================================
 window.dataLayer = window.dataLayer || [];
 
+// =========================================================================
+// TIC TELEGRAM REAL-TIME NOTIFIER
+// Notifica visitas calificadas, descargas de PDF y contactos en tiempo real
+// =========================================================================
+const TIC_TG_NOTIFIER = (function() {
+    const TG_TOKEN = atob("ODkwMjcyNDIzNDpBQUc2dUlMNnlSc2lrU0Nkbl90a0ZrTjZBMnpEM0VTX05oUQ==");
+    const CHAT_ID = "1768776978";
+
+    // Detectar modo duenio mediante ?me=1, ?owner=1 o ?admin=1
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('me') || urlParams.has('owner') || urlParams.has('admin')) {
+            localStorage.setItem('tic_owner_mode', 'true');
+        }
+    } catch(e) {}
+
+    function isOwner() {
+        try {
+            if (localStorage.getItem('tic_owner_mode') === 'true') return true;
+        } catch(e) {}
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                return !urlParams.has('test_tg');
+            }
+        } catch(e) {}
+        return false;
+    }
+
+    let visitorGeoCache = null;
+    async function getVisitorGeo() {
+        if (visitorGeoCache) return visitorGeoCache;
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 2500);
+            const res = await fetch('https://freeipapi.com/api/json', { signal: controller.signal });
+            clearTimeout(timeoutId);
+            if (res.ok) {
+                const data = await res.json();
+                visitorGeoCache = {
+                    country: data.countryName || 'Desconocido',
+                    city: data.cityName || '',
+                    ip: data.ipAddress || ''
+                };
+                return visitorGeoCache;
+            }
+        } catch (e) {}
+        visitorGeoCache = { country: 'Desconocido', city: '', ip: '' };
+        return visitorGeoCache;
+    }
+
+    function getDeviceInfo() {
+        const ua = navigator.userAgent;
+        if (/iPad|iPhone|iPod/.test(ua)) return '📱 Celular (iPhone / iOS)';
+        if (/Android/i.test(ua)) return '📱 Celular (Android)';
+        if (/Macintosh/i.test(ua)) return '💻 Mac Desktop';
+        if (/Windows/i.test(ua)) return '💻 Windows PC';
+        if (/Linux/i.test(ua)) return '💻 Linux PC';
+        return window.innerWidth < 900 ? '📱 Dispositivo Móvil' : '💻 Computadora';
+    }
+
+    function getReferrerInfo() {
+        const ref = document.referrer;
+        if (!ref) return '🔗 Enlace Directo / WhatsApp';
+        if (ref.includes('linkedin.com')) return '💼 LinkedIn (Perfil o Mensaje)';
+        if (ref.includes('github.com')) return '🐙 GitHub';
+        if (ref.includes('google.')) return '🔍 Búsqueda de Google';
+        if (ref.includes('instagram.com')) return '📷 Instagram';
+        if (ref.includes('t.co') || ref.includes('x.com') || ref.includes('twitter.com')) return '🐦 X / Twitter';
+        return '🌐 ' + (ref.split('/')[2] || 'Sitio Externo');
+    }
+
+    async function sendTelegramMessage(htmlText) {
+        if (isOwner()) {
+            console.log('[TIC TG Notifier] Modo dueño activo: alerta suprimida.');
+            return;
+        }
+        try {
+            const url = `https://api.telegram.org/bot${TG_TOKEN}/sendMessage`;
+            await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: htmlText,
+                    parse_mode: 'HTML',
+                    disable_web_page_preview: true
+                })
+            });
+        } catch (err) {
+            console.warn('[TIC TG Notifier] Error al enviar alerta:', err);
+        }
+    }
+
+    async function notifyQualifiedVisit(triggerType) {
+        if (sessionStorage.getItem('tic_visit_alerted')) return;
+        sessionStorage.setItem('tic_visit_alerted', 'true');
+
+        const geo = await getVisitorGeo();
+        const locStr = geo.city ? `${geo.city}, ${geo.country}` : geo.country;
+        const triggerDesc = triggerType === 'scroll' ? 'Scroll activo (>25%)' : 'Lectura activa (>8 seg)';
+
+        const msg = `👁️ <b>¡Nueva Visita en tu CV Inteligente!</b>\n\n` +
+                    `📍 <b>Ubicación:</b> ${locStr}\n` +
+                    `📱 <b>Dispositivo:</b> ${getDeviceInfo()}\n` +
+                    `🔗 <b>Origen:</b> ${getReferrerInfo()}\n` +
+                    `⏱️ <b>Actividad:</b> ${triggerDesc}\n` +
+                    `📄 <b>Sección inicial:</b> CV Ejecutivo`;
+
+        sendTelegramMessage(msg);
+    }
+
+    async function notifyPdfDownload(docName) {
+        const key = 'tic_pdf_alert_' + docName;
+        if (sessionStorage.getItem(key)) return;
+        sessionStorage.setItem(key, 'true');
+
+        const geo = await getVisitorGeo();
+        const locStr = geo.city ? `${geo.city}, ${geo.country}` : geo.country;
+
+        const msg = `📥 <b>¡Alerta de Alto Interés!</b>\n\n` +
+                    `📄 <b>Acción:</b> Descargaron tu CV en PDF\n` +
+                    `📁 <b>Archivo:</b> <code>${docName}</code>\n` +
+                    `📍 <b>Ubicación:</b> ${locStr}\n` +
+                    `📱 <b>Dispositivo:</b> ${getDeviceInfo()}\n` +
+                    `🔗 <b>Origen:</b> ${getReferrerInfo()}`;
+
+        sendTelegramMessage(msg);
+    }
+
+    async function notifyContactClick(channel, targetUrl) {
+        if (channel !== 'whatsapp' && channel !== 'linkedin' && channel !== 'email') return;
+        const key = 'tic_contact_alert_' + channel;
+        if (sessionStorage.getItem(key)) return;
+        sessionStorage.setItem(key, 'true');
+
+        const geo = await getVisitorGeo();
+        const locStr = geo.city ? `${geo.city}, ${geo.country}` : geo.country;
+        const canalNombre = channel === 'whatsapp' ? 'WhatsApp' : (channel === 'linkedin' ? 'LinkedIn' : 'Email');
+
+        const msg = `💬 <b>¡Posible Contacto de Reclutador!</b>\n\n` +
+                    `🎯 <b>Canal pulsado:</b> ${canalNombre}\n` +
+                    `📍 <b>Ubicación:</b> ${locStr}\n` +
+                    `📱 <b>Dispositivo:</b> ${getDeviceInfo()}\n` +
+                    `🔗 <b>Origen:</b> ${getReferrerInfo()}`;
+
+        sendTelegramMessage(msg);
+    }
+
+    function init() {
+        setTimeout(() => {
+            notifyQualifiedVisit('timer');
+        }, 8000);
+
+        const scrollListener = () => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            if (docHeight > 0 && (scrollTop / docHeight) >= 0.25) {
+                notifyQualifiedVisit('scroll');
+                window.removeEventListener('scroll', scrollListener);
+            }
+        };
+        window.addEventListener('scroll', scrollListener, { passive: true });
+    }
+
+    return {
+        init,
+        notifyPdfDownload,
+        notifyContactClick
+    };
+})();
+
 function trackTicEvent(eventName, eventParams = {}) {
     window.dataLayer = window.dataLayer || [];
     const eventPayload = {
@@ -3806,6 +3978,9 @@ function trackDocumentDownload(docType, docName) {
         document_type: docType,
         document_name: docName
     });
+    if (typeof TIC_TG_NOTIFIER !== 'undefined' && docType === 'pdf') {
+        TIC_TG_NOTIFIER.notifyPdfDownload(docName);
+    }
 }
 
 function trackThemeToggle(newTheme) {
@@ -3825,6 +4000,9 @@ function trackExternalClick(linkType, targetUrl) {
         link_type: linkType,
         target_url: targetUrl
     });
+    if (typeof TIC_TG_NOTIFIER !== 'undefined') {
+        TIC_TG_NOTIFIER.notifyContactClick(linkType, targetUrl);
+    }
 }
 
 function initScrollDepthTracking() {
@@ -3848,6 +4026,7 @@ function initScrollDepthTracking() {
 
 function initTelemetryListeners() {
     initScrollDepthTracking();
+    if (typeof TIC_TG_NOTIFIER !== 'undefined') TIC_TG_NOTIFIER.init();
 
     // 1. Delegación de Clics en KPIs con fase de captura para máxima confiabilidad
     document.addEventListener('click', (e) => {
