@@ -1,7 +1,7 @@
-# 🏷️ Guía de 1 Clic: Importar la Telemetría TIC® en Google Tag Manager
+# 🏷️ Guía de 1 Clic: Importar la Telemetría de CV Ejecutivo Inteligente en Google Tag Manager
 
 Ya tienes generado en la carpeta del proyecto el archivo oficial de configuración maestro:
-📁 **`gtm_tic_container.json`**
+📁 **`gtm_cv_inteligente_container.json`**
 
 Este archivo contiene:
 - ✅ **1 Etiqueta de Configuración de Google Analytics 4 (GA4):** Vinculada a tu ID `G-NQC5PHY67R`.
@@ -23,7 +23,7 @@ Este archivo contiene:
 1. Entrá a tu contenedor en **[tagmanager.google.com](https://tagmanager.google.com/)** (`GTM-P2Z4TZ4Z`).
 2. En la barra superior, hacé clic en la pestaña **Administración** (al lado de *Espacio de trabajo*).
 3. En la columna de la derecha (*Contenedor*), hacé clic en **Importar contenedor**.
-4. En **Seleccionar archivo de contenedor**, hacé clic en **Elegir archivo** y seleccioná el archivo `gtm_tic_container.json` que está en tu carpeta de descargas (`CV_html`).
+4. En **Seleccionar archivo de contenedor**, hacé clic en **Elegir archivo** y seleccioná el archivo `gtm_cv_inteligente_container.json` que está en tu carpeta de descargas (`CV_html`).
 5. En **Elegir espacio de trabajo**:
    - Marcá **Existente** (*Existing*) ➔ hacé clic en **Default Workspace**.
 6. En **Elegir opción de importación**:

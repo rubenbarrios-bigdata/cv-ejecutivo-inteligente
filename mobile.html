@@ -60,7 +60,6 @@
           "@type": "SoftwareApplication",
           "@id": "https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/#app",
           "name": "CV Ejecutivo Inteligente",
-          "alternateName": "TIC",
           "operatingSystem": "All (Web Browser)",
           "applicationCategory": "BusinessApplication, EducationalApplication",
           "description": "CV Ejecutivo Inteligente es una plataforma web y CV interactivo con mentalidad de dashboard ejecutivo, desacoplamiento de capa de datos JSON y telemetría analítica, creada y desarrollada por Rubén David Barrios Bello en Buenos Aires, Argentina.",
@@ -3744,16 +3743,18 @@
         
 
 // =========================================================================
-// TIC TELEMETRY ENGINE: Capa de Telemetría & DataLayer Multiusuario
+// TELEMETRY ENGINE: Capa de Telemetría & DataLayer (CV Ejecutivo Inteligente)
 // Plataforma: CV Ejecutivo Inteligente
 // =========================================================================
 window.dataLayer = window.dataLayer || [];
 
 // =========================================================================
-// TIC TELEGRAM REAL-TIME NOTIFIER
+// TELEGRAM REAL-TIME NOTIFIER (CV Ejecutivo Inteligente)
 // Notifica visitas calificadas, descargas de PDF y contactos en tiempo real
 // =========================================================================
-const TIC_TG_NOTIFIER = (function() {
+const CV_TG_NOTIFIER = (function() {
+    // Aliases
+
     const TG_TOKEN = atob("ODkwMjcyNDIzNDpBQUc2dUlMNnlSc2lrU0Nkbl90a0ZrTjZBMnpEM0VTX05oUQ==");
     const CHAT_ID = "1768776978";
 
@@ -3823,7 +3824,7 @@ const TIC_TG_NOTIFIER = (function() {
 
     async function sendTelegramMessage(htmlText) {
         if (isOwner()) {
-            console.log('[TIC TG Notifier] Modo dueño activo: alerta suprimida.');
+            console.log('[CV Notifier] Modo dueño activo: alerta suprimida.');
             return;
         }
         try {
@@ -3839,7 +3840,7 @@ const TIC_TG_NOTIFIER = (function() {
                 })
             });
         } catch (err) {
-            console.warn('[TIC TG Notifier] Error al enviar alerta:', err);
+            console.warn('[CV Notifier] Error al enviar alerta:', err);
         }
     }
 
@@ -3921,7 +3922,7 @@ const TIC_TG_NOTIFIER = (function() {
     };
 })();
 
-function trackTicEvent(eventName, eventParams = {}) {
+function trackCvEvent(eventName, eventParams = {}) {
     window.dataLayer = window.dataLayer || [];
     const eventPayload = {
         event: eventName,
@@ -3936,7 +3937,7 @@ function trackTicEvent(eventName, eventParams = {}) {
         ...eventParams
     };
     window.dataLayer.push(eventPayload);
-    console.log(`%c[TIC Telemetry] %c${eventName}`, 'color: #0284c7; font-weight: bold;', 'color: #38bdf8;', eventPayload);
+    console.log(`%c[CV Telemetry] %c${eventName}`, 'color: #0284c7; font-weight: bold;', 'color: #38bdf8;', eventPayload);
 }
 
 let lastTrackedKpiTime = 0;
@@ -3954,10 +3955,11 @@ function handleKpiClick(kpiId, kpiNumber, kpiLabel, targetAnchor) {
     try {
         trackKpiClick(kpiId, kpiNumber, kpiLabel, targetAnchor);
     } catch (err) {
-        console.warn('[TIC Telemetry] Error in handleKpiClick:', err);
+        console.warn('[CV Telemetry] Error in handleKpiClick:', err);
     }
 }
-window.trackTicEvent = trackTicEvent;
+window.trackCvEvent = trackCvEvent;
+window.trackTicEvent = trackCvEvent;
 window.trackKpiClick = trackKpiClick;
 window.handleKpiClick = handleKpiClick;
 window.trackCertFilter = trackCertFilter;
@@ -3978,8 +3980,8 @@ function trackDocumentDownload(docType, docName) {
         document_type: docType,
         document_name: docName
     });
-    if (typeof TIC_TG_NOTIFIER !== 'undefined' && docType === 'pdf') {
-        TIC_TG_NOTIFIER.notifyPdfDownload(docName);
+    if (typeof CV_TG_NOTIFIER !== 'undefined' && docType === 'pdf') {
+        CV_TG_NOTIFIER.notifyPdfDownload(docName);
     }
 }
 
@@ -4000,8 +4002,8 @@ function trackExternalClick(linkType, targetUrl) {
         link_type: linkType,
         target_url: targetUrl
     });
-    if (typeof TIC_TG_NOTIFIER !== 'undefined') {
-        TIC_TG_NOTIFIER.notifyContactClick(linkType, targetUrl);
+    if (typeof CV_TG_NOTIFIER !== 'undefined') {
+        CV_TG_NOTIFIER.notifyContactClick(linkType, targetUrl);
     }
 }
 
@@ -4026,7 +4028,7 @@ function initScrollDepthTracking() {
 
 function initTelemetryListeners() {
     initScrollDepthTracking();
-    if (typeof TIC_TG_NOTIFIER !== 'undefined') TIC_TG_NOTIFIER.init();
+    if (typeof CV_TG_NOTIFIER !== 'undefined') CV_TG_NOTIFIER.init();
 
     // 1. Delegación de Clics en KPIs con fase de captura para máxima confiabilidad
     document.addEventListener('click', (e) => {

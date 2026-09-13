@@ -12,13 +12,13 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
             "accountId": num_acc,
             "containerId": num_cnt,
             "containerVersionId": "0",
-            "name": "Talent Intelligence Career (TIC)®",
+            "name": "CV Ejecutivo Inteligente",
             "publicId": gtm_id,
             "container": {
                 "path": f"accounts/{num_acc}/containers/{num_cnt}",
                 "accountId": num_acc,
                 "containerId": num_cnt,
-                "name": "Talent Intelligence Career",
+                "name": "CV Ejecutivo Inteligente",
                 "publicId": gtm_id,
                 "usageContext": ["WEB"]
             },
@@ -27,7 +27,7 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                     "accountId": num_acc,
                     "containerId": num_cnt,
                     "tagId": "1",
-                    "name": "Google Tag - GA4 Configuration (TIC)",
+                    "name": "Google Tag - GA4 Configuration (CV Ejecutivo Inteligente)",
                     "type": "googtag",
                     "parameter": [
                         {"type": "BOOLEAN", "key": "tagIdSettings", "value": "false"},
@@ -535,7 +535,7 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
         }
     }
 
-    filename = "gtm_tic_container.json"
+    filename = "gtm_cv_inteligente_container.json"
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(container, f, indent=2, ensure_ascii=False)
     print(f"GTM Container JSON exported to: {filename}")

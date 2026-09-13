@@ -6,13 +6,13 @@
     "accountId": "10000001",
     "containerId": "20000001",
     "containerVersionId": "0",
-    "name": "Talent Intelligence Career (TIC)®",
+    "name": "CV Ejecutivo Inteligente",
     "publicId": "GTM-P2Z4TZ4Z",
     "container": {
       "path": "accounts/10000001/containers/20000001",
       "accountId": "10000001",
       "containerId": "20000001",
-      "name": "Talent Intelligence Career",
+      "name": "CV Ejecutivo Inteligente",
       "publicId": "GTM-P2Z4TZ4Z",
       "usageContext": [
         "WEB"
@@ -23,7 +23,7 @@
         "accountId": "10000001",
         "containerId": "20000001",
         "tagId": "1",
-        "name": "Google Tag - GA4 Configuration (TIC)",
+        "name": "Google Tag - GA4 Configuration (CV Ejecutivo Inteligente)",
         "type": "googtag",
         "parameter": [
           {
