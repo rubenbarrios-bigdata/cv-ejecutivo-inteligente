@@ -1,8 +1,8 @@
 -- =========================================================================
--- Talent Intelligence Career (TIC)® - Telemetry Analytics Engine
+-- CV Ejecutivo Inteligente - Telemetry Analytics Engine
 -- Modelo: Vista Analítica de Interacciones con KPIs Estratégicos
 -- Autor: Rubén David Barrios Bello | Data Analyst
--- Repositorio: talent-intelligence-career / TIC Platform
+-- Plataforma: CV Ejecutivo Inteligente
 -- Motor: Google Cloud BigQuery (Standard SQL)
 -- =========================================================================
 -- Descripción:
@@ -20,7 +20,7 @@ WITH raw_kpi_events AS (
         user_pseudo_id,
         (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'ga_session_id') AS session_id,
         
-        -- Dimensiones personalizadas de TIC® desanidadas
+        -- Dimensiones personalizadas desanidadas
         (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'candidate_id') AS candidate_id,
         (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'kpi_id') AS kpi_id,
         (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'kpi_number') AS kpi_number,

@@ -17,18 +17,18 @@ GTM_BODY_SNIPPET = """    <!-- Google Tag Manager (noscript) -->
 
 TELEMETRY_ENGINE_JS = """
 // =========================================================================
-// TIC TELEMETRY ENGINE: Capa de Telemetría & DataLayer Multiusuario
-// Plataforma: Talent Intelligence Career (TIC)®
+// CV EJECUTIVO INTELIGENTE: Capa de Telemetría & DataLayer Multiusuario
+// Plataforma: CV Ejecutivo Inteligente
 // =========================================================================
 window.dataLayer = window.dataLayer || [];
 
-function trackTicEvent(eventName, eventParams = {}) {
+function trackCvEvent(eventName, eventParams = {}) {
     window.dataLayer = window.dataLayer || [];
     const eventPayload = {
         event: eventName,
         candidate_id: "ruben_barrios",
         candidate_name: "Rubén David Barrios Bello",
-        platform_name: "Talent Intelligence Career (TIC)®",
+        platform_name: "CV Ejecutivo Inteligente",
         platform_version: "1.0",
         screen_type: window.innerWidth < 900 ? "mobile" : "desktop",
         page_location: window.location.href,
@@ -37,8 +37,9 @@ function trackTicEvent(eventName, eventParams = {}) {
         ...eventParams
     };
     window.dataLayer.push(eventPayload);
-    console.log(`%c[TIC Telemetry] %c${eventName}`, 'color: #0284c7; font-weight: bold;', 'color: #38bdf8;', eventPayload);
+    console.log(`%c[CV Telemetry] %c${eventName}`, 'color: #0284c7; font-weight: bold;', 'color: #38bdf8;', eventPayload);
 }
+window.trackTicEvent = trackCvEvent; // Alias de retrocompatibilidad
 
 function trackKpiClick(kpiId, kpiNumber, kpiLabel, targetAnchor) {
     trackTicEvent("cv_kpi_interaction", {

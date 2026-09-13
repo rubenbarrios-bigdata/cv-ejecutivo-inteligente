@@ -1,8 +1,8 @@
-# 🏛️ Talent Intelligence Career (TIC)® - BigQuery Analytics Engine
+# 🏛️ CV Ejecutivo Inteligente - BigQuery Analytics Engine
 
 > **Autor:** Rubén David Barrios Bello  
 > **Especialidad:** Data Analyst | BI & Digital Analytics  
-> **Plataforma:** Talent Intelligence Career (TIC)®  
+> **Plataforma:** CV Ejecutivo Inteligente  
 > **Data Warehouse:** Google Cloud BigQuery (Standard SQL)  
 > **Proyecto GCP:** `talent-intelligence-career-tic`
 
@@ -12,7 +12,7 @@
 
 ```mermaid
 flowchart LR
-    A[CV Web Ejecutivo\nJavaScript DataLayer] -->|Eventos TIC®| B[Google Tag Manager\nGTM-P2Z4TZ4Z]
+    A[CV Web Ejecutivo\nJavaScript DataLayer] -->|Eventos DataLayer| B[Google Tag Manager\nGTM-P2Z4TZ4Z]
     B -->|GA4 Measurement Protocol| C[Google Analytics 4\nG-NQC5PHY67R]
     C -->|Batch Export Diario Gratuito| D[(Google Cloud BigQuery\nDataset analytics_tic)]
     D -->|Vistas SQL Modeladas| E[Looker Studio\nDashboard Ejecutivo]
