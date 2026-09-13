@@ -1,30 +1,30 @@
-# 🏛️ Guía Paso a Paso: Registro de Software y Obra Inédita TIC® ante la DNDA vía TAD
+# 🏛️ Guía Paso a Paso: Registro de Software y Obra Inédita ante la DNDA vía TAD
 
-Esta guía detalla el procedimiento exacto para realizar el **Depósito en Custodia de Software / Soporte Lógico (Obra Inédita)** de la plataforma **Talent Intelligence Career (TIC)®** ante la **Dirección Nacional del Derecho de Autor (DNDA)** de la República Argentina a través del portal oficial de **Trámites a Distancia (TAD)**.
+Esta guía detalla el procedimiento exacto para realizar el **Depósito en Custodia de Software / Soporte Lógico (Obra Inédita)** de la plataforma **CV Ejecutivo Inteligente** ante la **Dirección Nacional del Derecho de Autor (DNDA)** de la República Argentina a través del portal oficial de **Trámites a Distancia (TAD)**.
 
 ---
 
 ## 📦 1. Archivos del Dossier Oficial Generados y Listos para Subir
 
-En la carpeta del proyecto ya tienes generados los dos archivos maestros para el trámite:
+En la carpeta del proyecto ya tienes generados los archivos maestros para el trámite:
 
 1. **Código Fuente Empaquetado (.ZIP):**
-   - **Nombre de archivo:** `Talent_Intelligence_Career_TIC_v1.0_Codigo_Fuente_Ruben_Barrios.zip`
-   - **Tamaño:** `4.900 KB (~4,8 MB)`
+   - **Nombre de archivo:** `CV_Ejecutivo_Inteligente_v1.0_Codigo_Fuente_Ruben_Barrios.zip`
+   - **Tamaño:** `5.042 KB (~4,9 MB)`
    - **Contenido:** Código HTML5, CSS3, JavaScript ES6+, capas de datos `data.json` y `data_en.json`, documentación `README.md`, assets gráficos y capturas de renderizado.
    - **Huella SHA-256 Inalterable:**
      ```
-     07b97ed3df6e33ebc5c6f03d6892df8413453ab2f7bfe774a024b2ab6ba9287f
+     9f802c4511788a87938b8c782c46c52bb88b7c9d5417d911845e073c94530bc6
      ```
    - **Huella MD5:**
      ```
-     ab95cb372081a16edc505ac92ec6cd17
+     e90ba2116ab1a4973eef16fe21db8fc1
      ```
 
 2. **Memoria Técnica y Descriptiva Oficial (.PDF):**
-   - **Nombre de archivo:** `Memoria_Tecnica_Descriptiva_DNDA_TIC_Ruben_Barrios.pdf`
+   - **Nombre de archivo:** `Memoria_Tecnica_Descriptiva_DNDA_Ruben_Barrios.pdf`
    - **Extensión:** 3 páginas formateadas con membrete y estructura legal de la Ley 11.723.
-   - **Contenido:** Declaración jurada de autoría, perfil de Rubén Barrios (venezolano radicado en Argentina desde 2018), arquitectura técnica de desacoplamiento, inventario de archivos, huellas criptográficas y hoja de ruta de la Macro-Fase 2 (Telemetría, BigQuery, IA Gemini).
+   - **Contenido:** Declaración jurada de autoría, perfil de Rubén Barrios (venezolano radicado en Argentina desde 2018), arquitectura técnica de desacoplamiento, inventario de archivos, huellas criptográficas y hoja de ruta evolutiva (Telemetría en tiempo real, BigQuery, IA).
 
 ---
 
@@ -61,11 +61,11 @@ En la carpeta del proyecto ya tienes generados los dos archivos maestros para el
 ### B. Datos de la Obra (Software):
 - **Título de la Obra:**
   ```
-  Talent Intelligence Career (TIC)®
+  CV Ejecutivo Inteligente
   ```
 - **Acrónimo / Denominación Abreviada:**
   ```
-  TIC®
+  CV Ejecutivo Inteligente
   ```
 - **Género / Tipo de Creación:**
   ```
@@ -85,7 +85,7 @@ En la carpeta del proyecto ya tienes generados los dos archivos maestros para el
   ```
 - **Breve Síntesis / Objeto del Software:**
   ```
-  Plataforma interactiva de inteligencia curricular y dashboard ejecutivo de analítica profesional con arquitectura desacoplada de datos (data.json), diseño responsivo nativo, motor bilingüe reactivo y telemetría de interacción.
+  Plataforma interactiva de inteligencia curricular y dashboard ejecutivo de analítica profesional con arquitectura desacoplada de datos (data.json), diseño responsivo nativo, motor bilingüe reactivo y telemetría de interacción en tiempo real.
   ```
 
 ---
@@ -94,10 +94,10 @@ En la carpeta del proyecto ya tienes generados los dos archivos maestros para el
 
 | Campo / Requisito en TAD | Archivo a Seleccionar en tu Computadora | Notas |
 | :--- | :--- | :--- |
-| **Soporte Lógico / Código Fuente** | `Talent_Intelligence_Career_TIC_v1.0_Codigo_Fuente_Ruben_Barrios.zip` | Contiene el código fuente completo sellado. |
-| **Memoria Descriptiva / Manual** | `Memoria_Tecnica_Descriptiva_DNDA_TIC_Ruben_Barrios.pdf` | Documento de 3 páginas con la declaración jurada y hash SHA-256. |
+| **Soporte Lógico / Código Fuente** | `CV_Ejecutivo_Inteligente_v1.0_Codigo_Fuente_Ruben_Barrios.zip` | Contiene el código fuente completo sellado. |
+| **Memoria Descriptiva / Manual** | `Memoria_Tecnica_Descriptiva_DNDA_Ruben_Barrios.pdf` | Documento de 3 páginas con la declaración jurada y hash SHA-256. |
 | **Documento de Identidad del Autor** | Frente y dorso de tu DNI / Radicación / Pasaporte | Copia legible en PDF o imagen. |
-| **Documentación Adicional (Opcional)** | `Plan_Estrategico_Talent_Intelligence_Career_TIC_Ruben_Barrios.pdf` | Dossier maestro de 4 páginas con la arquitectura y roadmap. |
+| **Documentación Adicional (Opcional)** | `Plan_Estrategico_CV_Ejecutivo_Inteligente_Ruben_Barrios.pdf` | Dossier maestro con la arquitectura y roadmap. |
 
 ---
 
@@ -114,5 +114,5 @@ En la carpeta del proyecto ya tienes generados los dos archivos maestros para el
 
 Para cualquier cotejo o verificación posterior, el archivo `.zip` depositado responde a las siguientes firmas criptográficas exactas:
 
-- **Algoritmo SHA-256:** `07b97ed3df6e33ebc5c6f03d6892df8413453ab2f7bfe774a024b2ab6ba9287f`
-- **Algoritmo MD5:** `ab95cb372081a16edc505ac92ec6cd17`
+- **Algoritmo SHA-256:** `9f802c4511788a87938b8c782c46c52bb88b7c9d5417d911845e073c94530bc6`
+- **Algoritmo MD5:** `e90ba2116ab1a4973eef16fe21db8fc1`

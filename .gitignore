@@ -5,3 +5,4 @@ Thumbs.db
 node_modules/
 scratch/
 *.bak
+avatar_b64.txt

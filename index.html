@@ -3762,13 +3762,13 @@ const CV_TG_NOTIFIER = (function() {
     try {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('me') || urlParams.has('owner') || urlParams.has('admin')) {
-            localStorage.setItem('tic_owner_mode', 'true');
+            localStorage.setItem('cv_owner_mode', 'true');
         }
     } catch(e) {}
 
     function isOwner() {
         try {
-            if (localStorage.getItem('tic_owner_mode') === 'true') return true;
+            if (localStorage.getItem('cv_owner_mode') === 'true') return true;
         } catch(e) {}
         try {
             const urlParams = new URLSearchParams(window.location.search);
@@ -3845,8 +3845,8 @@ const CV_TG_NOTIFIER = (function() {
     }
 
     async function notifyQualifiedVisit(triggerType) {
-        if (sessionStorage.getItem('tic_visit_alerted')) return;
-        sessionStorage.setItem('tic_visit_alerted', 'true');
+        if (sessionStorage.getItem('cv_visit_alerted')) return;
+        sessionStorage.setItem('cv_visit_alerted', 'true');
 
         const geo = await getVisitorGeo();
         const locStr = geo.city ? `${geo.city}, ${geo.country}` : geo.country;
@@ -3863,7 +3863,7 @@ const CV_TG_NOTIFIER = (function() {
     }
 
     async function notifyPdfDownload(docName) {
-        const key = 'tic_pdf_alert_' + docName;
+        const key = 'cv_pdf_alert_' + docName;
         if (sessionStorage.getItem(key)) return;
         sessionStorage.setItem(key, 'true');
 
@@ -3882,7 +3882,7 @@ const CV_TG_NOTIFIER = (function() {
 
     async function notifyContactClick(channel, targetUrl) {
         if (channel !== 'whatsapp' && channel !== 'linkedin' && channel !== 'email') return;
-        const key = 'tic_contact_alert_' + channel;
+        const key = 'cv_contact_alert_' + channel;
         if (sessionStorage.getItem(key)) return;
         sessionStorage.setItem(key, 'true');
 

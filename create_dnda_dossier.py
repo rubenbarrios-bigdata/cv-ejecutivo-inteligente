@@ -12,7 +12,7 @@ from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfgen import canvas
 
 def create_zip_archive():
-    zip_filename = "Talent_Intelligence_Career_TIC_v1.0_Codigo_Fuente_Ruben_Barrios.zip"
+    zip_filename = "CV_Ejecutivo_Inteligente_v1.0_Codigo_Fuente_Ruben_Barrios.zip"
     files_to_include = [
         "CV_Ruben_Barrios.html",
         "CV_Ruben_Barrios_Mobile.html",
@@ -21,7 +21,7 @@ def create_zip_archive():
         "data.json",
         "data_en.json",
         "README.md",
-        "Plan_Estrategico_Talent_Intelligence_Career_TIC_Ruben_Barrios.pdf",
+        "Plan_Estrategico_CV_Ejecutivo_Inteligente_Ruben_Barrios.pdf",
         "CV_Ruben_Barrios_Analista_De_Datos.pdf"
     ]
     dirs_to_include = ["certs_images", "screenshots"]
@@ -29,14 +29,14 @@ def create_zip_archive():
     with zipfile.ZipFile(zip_filename, "w", zipfile.ZIP_DEFLATED) as zipf:
         for f in files_to_include:
             if os.path.exists(f):
-                zipf.write(f, arcname=f"TIC_v1.0/{f}")
+                zipf.write(f, arcname=f"CV_Ejecutivo_Inteligente_v1.0/{f}")
         for d in dirs_to_include:
             if os.path.exists(d):
                 for root, _, filenames in os.walk(d):
                     for fn in filenames:
                         full_p = os.path.join(root, fn)
                         rel_p = os.path.relpath(full_p, ".")
-                        zipf.write(full_p, arcname=f"TIC_v1.0/{rel_p}")
+                        zipf.write(full_p, arcname=f"CV_Ejecutivo_Inteligente_v1.0/{rel_p}")
 
     # Compute hashes
     sha256_hash = hashlib.sha256()
@@ -81,7 +81,7 @@ class NumberedCanvas(canvas.Canvas):
         
         # Header (pages > 1)
         if self._pageNumber > 1:
-            self.drawString(54, 752, "Talent Intelligence Career (TIC)® — Memoria Técnica y Descriptiva (DNDA / Ley 11.723)")
+            self.drawString(54, 752, "CV Ejecutivo Inteligente — Memoria Técnica y Descriptiva (DNDA / Ley 11.723)")
             self.setStrokeColor(colors.HexColor("#e2e8f0"))
             self.setLineWidth(0.6)
             self.line(54, 744, 558, 744)
@@ -96,7 +96,7 @@ class NumberedCanvas(canvas.Canvas):
         self.restoreState()
 
 def generate_pdf(zip_meta):
-    pdf_filename = "Memoria_Tecnica_Descriptiva_DNDA_TIC_Ruben_Barrios.pdf"
+    pdf_filename = "Memoria_Tecnica_Descriptiva_DNDA_Ruben_Barrios.pdf"
     doc = SimpleDocTemplate(
         pdf_filename,
         pagesize=letter,
@@ -188,8 +188,8 @@ def generate_pdf(zip_meta):
     story.append(Paragraph("1. IDENTIFICACIÓN FORMAL DE LA OBRA Y TITULARIDAD", h1_style))
     
     meta_table_data = [
-        [Paragraph("<b>Denominación de la Obra:</b>", body_style), Paragraph("<b>Talent Intelligence Career (TIC)®</b>", body_bold)],
-        [Paragraph("<b>Acrónimo Oficial:</b>", body_style), Paragraph("TIC®", body_style)],
+        [Paragraph("<b>Denominación de la Obra:</b>", body_style), Paragraph("<b>CV Ejecutivo Inteligente</b>", body_bold)],
+        [Paragraph("<b>Acrónimo / Subtítulo:</b>", body_style), Paragraph("CV Ejecutivo Inteligente", body_style)],
         [Paragraph("<b>Género / Tipo de Creación:</b>", body_style), Paragraph("Software / Soporte Lógico / Aplicación Web Interactiva", body_style)],
         [Paragraph("<b>Versión Depositada:</b>", body_style), Paragraph("Versión 1.0 (Core & Executive Dashboard)", body_style)],
         [Paragraph("<b>Autor y Titular Exclusivo:</b>", body_style), Paragraph("<b>Rubén David Barrios Bello</b>", body_bold)],
@@ -197,7 +197,7 @@ def generate_pdf(zip_meta):
         [Paragraph("<b>Radicación y Residencia:</b>", body_style), Paragraph("Ciudad Autónoma de Buenos Aires, República Argentina (desde 2018)", body_style)],
         [Paragraph("<b>Perfil Profesional:</b>", body_style), Paragraph("Licenciado en Banca y Finanzas • Data Analyst & BI Specialist", body_style)],
         [Paragraph("<b>Lugar y Año de Fijación:</b>", body_style), Paragraph("Buenos Aires, República Argentina — 2026", body_style)],
-        [Paragraph("<b>Dominio / Repositorio Público:</b>", body_style), Paragraph("https://rubenbarrios-bigdata.github.io/talent-intelligence-career/", code_style)]
+        [Paragraph("<b>Dominio / Repositorio Público:</b>", body_style), Paragraph("https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/", code_style)]
     ]
     t_meta = Table(meta_table_data, colWidths=[160, 344])
     t_meta.setStyle(TableStyle([
@@ -243,9 +243,9 @@ def generate_pdf(zip_meta):
     # Section 3: Memoria Descriptiva Funcional
     story.append(Paragraph("3. MEMORIA DESCRIPTIVA Y OBJETO DEL SOFTWARE", h1_style))
     story.append(Paragraph(
-        "<b>Talent Intelligence Career (TIC)®</b> es una aplicación y plataforma interactiva concebida con criterio analítico "
+        "<b>CV Ejecutivo Inteligente</b> es una aplicación y plataforma interactiva concebida con criterio analítico "
         "que revoluciona la presentación curricular transformándola en un <b>Executive Dashboard de métricas y analítica profesional</b>. "
-        "A diferencia de los currículums tradicionales impresos en papel o exportados a formatos de documento estático, TIC® opera como un "
+        "A diferencia de los currículums tradicionales impresos en papel o exportados a formatos de documento estático, opera como un "
         "sistema de inteligencia curricular desacoplado, modular y altamente reactivo, permitiendo a decisores de negocio y reclutadores técnicos "
         "interactuar con la trayectoria profesional del autor mediante indicadores cuantitativos verificables.",
         body_style
@@ -274,13 +274,13 @@ def generate_pdf(zip_meta):
     ))
 
     struct_table_data = [
-        [Paragraph("<b>Archivo / Módulo</b>", body_bold), Paragraph("<b>Lenguaje / Formato</b>", body_bold), Paragraph("<b>Función Técnica en la Arquitectura TIC®</b>", body_bold)],
+        [Paragraph("<b>Archivo / Módulo</b>", body_bold), Paragraph("<b>Lenguaje / Formato</b>", body_bold), Paragraph("<b>Función Técnica en la Arquitectura</b>", body_bold)],
         [Paragraph("<code>CV_Ruben_Barrios.html</code><br/><code>index.html</code>", code_style), Paragraph("HTML5 / CSS3 / JS", body_style), Paragraph("Interfaz web principal para entornos desktop. Integra el dashboard, filtros dinámicos y esquema Schema.org JSON-LD.", body_style)],
         [Paragraph("<code>CV_Ruben_Barrios_Mobile.html</code><br/><code>mobile.html</code>", code_style), Paragraph("HTML5 / CSS3 / JS", body_style), Paragraph("Interfaz táctil adaptada para navegación vertical rápida en terminales móviles.", body_style)],
         [Paragraph("<code>data.json</code>", code_style), Paragraph("JSON", body_style), Paragraph("Capa de datos central (Data Layer) en español: almacena valores de KPIs, rutas, iconos y metadatos.", body_style)],
         [Paragraph("<code>data_en.json</code>", code_style), Paragraph("JSON", body_style), Paragraph("Capa de datos internacional en idioma inglés con nomenclatura analítica adaptada.", body_style)],
         [Paragraph("<code>README.md</code>", code_style), Paragraph("Markdown", body_style), Paragraph("Documentación del software, guía de ejecución, especificación de capas y declaración formal de autoría.", body_style)],
-        [Paragraph("<code>Plan_Estrategico_*.pdf</code>", code_style), Paragraph("PDF / ReportLab", body_style), Paragraph("Dossier maestro de arquitectura de la plataforma y hoja de ruta evolutiva de TIC®.", body_style)],
+        [Paragraph("<code>Plan_Estrategico_*.pdf</code>", code_style), Paragraph("PDF / ReportLab", body_style), Paragraph("Dossier maestro de arquitectura de la plataforma y hoja de ruta evolutiva de CV Ejecutivo Inteligente.", body_style)],
         [Paragraph("<code>certs_images/</code>", code_style), Paragraph("Imágenes WebP/PNG", body_style), Paragraph("Directorio de activos visuales de certificaciones técnicas verificadas.", body_style)],
         [Paragraph("<code>screenshots/</code>", code_style), Paragraph("Imágenes PNG", body_style), Paragraph("Evidencia gráfica del renderizado visual de la interfaz de usuario en modo claro y oscuro.", body_style)]
     ]
@@ -302,7 +302,7 @@ def generate_pdf(zip_meta):
     story.append(Paragraph("5. HOJA DE RUTA EVOLUTIVA Y ESPECIFICACIÓN CONCEPTUAL (MACRO-FASE 2)", h1_style))
     story.append(Paragraph(
         "Se deja expresa constancia en el presente depósito de la propiedad intelectual correspondiente a la <b>arquitectura conceptual "
-        "y metodológica de los módulos complementarios de TIC®</b> programados para su despliegue en etapas sucesivas:",
+        "y metodológica de los módulos complementarios de CV Ejecutivo Inteligente</b> programados para su despliegue en etapas sucesivas:",
         body_style
     ))
     bullet_items_sec5 = [
@@ -320,7 +320,7 @@ def generate_pdf(zip_meta):
     story.append(Paragraph("6. DECLARACIÓN JURADA DE AUTORÍA Y RESERVA DE DERECHOS", h1_style))
     story.append(Paragraph(
         "El abajo firmante, <b>Rubén David Barrios Bello</b>, en su condición de autor, diseñador y programador creador de la plataforma "
-        "<b>Talent Intelligence Career (TIC)®</b>, declara bajo juramento que la presente obra técnica y el soporte lógico que la integra "
+        "<b>CV Ejecutivo Inteligente</b>, declara bajo juramento que la presente obra técnica y el soporte lógico que la integra "
         "son de su autoría original y creación exclusiva, no vulnerando derechos de terceros ni habiendo cedido con anterioridad la titularidad "
         "de los mismos. Se efectúa el depósito en los términos del régimen establecido por la <b>Ley N° 11.723</b> de la República Argentina, "
         "reservándose expresamente la totalidad de los derechos morales y patrimoniales que de ella se derivan.",
@@ -333,7 +333,7 @@ def generate_pdf(zip_meta):
         [Paragraph("<b>Lugar y Fecha:</b> Ciudad Autónoma de Buenos Aires, República Argentina — 2026", body_style)],
         [Spacer(1, 20)],
         [Paragraph("___________________________________________________", body_style)],
-        [Paragraph("<b>Rubén David Barrios Bello</b><br/>Autor y Titular Exclusivo<br/>Talent Intelligence Career (TIC)®", body_style)]
+        [Paragraph("<b>Rubén David Barrios Bello</b><br/>Autor y Titular Exclusivo<br/>CV Ejecutivo Inteligente", body_style)]
     ]
     t_sig = Table(sig_data, colWidths=[504])
     t_sig.setStyle(TableStyle([

@@ -200,7 +200,7 @@ A diferencia de un currículum estático convencional, este proyecto incorpora u
 3. **💬 Clics en Canales de Contacto Directo**:
    - Notifica en tiempo real si el usuario presiona los botones de **WhatsApp**, **LinkedIn** o **Email**.
 4. **🛡️ Filtro de Auto-Visitas (Modo Dueño)**:
-   - Admite el parámetro URL `?me=1` para registrar el flag `tic_owner_mode: true` en el almacenamiento local del autor, silenciando automáticamente sus propias sesiones de prueba y edición.
+   - Admite el parámetro URL `?me=1` para registrar el flag `cv_owner_mode: true` en el almacenamiento local del autor, silenciando automáticamente sus propias sesiones de prueba y edición.
 
 ---
 
@@ -252,9 +252,9 @@ Luego abrí tu navegador en: `http://localhost:8000`
 1. **Derechos de Autor (Ley 11.723 - República Argentina)**:
    La estructura, diseño visual, código fuente (HTML5, CSS3, JavaScript ES6+), esquema de datos (`data.json`) y el concepto funcional **CV Ejecutivo Inteligente** constituyen una obra técnica e intelectual original protegida bajo la Ley de Propiedad Intelectual N° 11.723 de la República Argentina y convenios internacionales (Convenio de Berna).
 2. **Depósito y Registro Oficial**:
-   Obra técnica y software en proceso de registro formal ante la **Dirección Nacional del Derecho de Autor (DNDA)** del Ministerio de Justicia de la República Argentina a través de la plataforma oficial de Trámites a Distancia (**TAD**).
+   Obra técnica y software en proceso de registro formal ante la **Dirección Nacional del Derecho de Autor (DNDA)** del Ministerio de Justicia de la República Argentina a través de la plataforma oficial de Trámites a Distancia (**TAD**). La guía paso a paso se detalla en [`GUIA_PASO_A_PASO_TRAMITE_TAD_DNDA.md`](GUIA_PASO_A_PASO_TRAMITE_TAD_DNDA.md).
 3. **Documentación Estratégica**:
-   El dossier metodológico completo, arquitectura técnica y hoja de ruta evolutiva se encuentran documentados en el informe maestro: [`Plan_Estrategico_Talent_Intelligence_Career_TIC_Ruben_Barrios.pdf`](Plan_Estrategico_Talent_Intelligence_Career_TIC_Ruben_Barrios.pdf).
+   El dossier metodológico completo, arquitectura técnica y hoja de ruta evolutiva se encuentran documentados en el informe maestro: [`Plan_Estrategico_CV_Ejecutivo_Inteligente_Ruben_Barrios.pdf`](Plan_Estrategico_CV_Ejecutivo_Inteligente_Ruben_Barrios.pdf).
 
 ---
 

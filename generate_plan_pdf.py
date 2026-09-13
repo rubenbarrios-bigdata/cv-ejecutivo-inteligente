@@ -41,7 +41,7 @@ class NumberedCanvas(canvas.Canvas):
 
         # Header elegante en todas las páginas salvo la portada
         if self._pageNumber > 1:
-            self.drawString(48, 11 * inch - 36, "TALENT INTELLIGENCE CAREER (TIC) | PLAN ESTRATÉGICO & ARQUITECTURA")
+            self.drawString(48, 11 * inch - 36, "CV EJECUTIVO INTELIGENTE | PLAN ESTRATÉGICO & ARQUITECTURA")
             self.drawRightString(8.5 * inch - 48, 11 * inch - 36, "RUBÉN DAVID BARRIOS BELLO")
             self.setStrokeColor(colors.HexColor("#CBD5E1"))
             self.setLineWidth(0.75)
@@ -176,16 +176,16 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
     # PÁGINA 1: PORTADA, RESUMEN EJECUTIVO Y ARQUITECTURA EN DOS MACRO-FASES
     # =========================================================================
     story.append(Paragraph("DATA-DRIVEN EXECUTIVE DASHBOARD & AI CAREER HUB", subtitle_style))
-    story.append(Paragraph("Talent Intelligence Career (TIC)", title_style))
+    story.append(Paragraph("CV Ejecutivo Inteligente", title_style))
     story.append(Paragraph("Plan Estratégico y Arquitectura Técnica: Estructuración en Dos Macro-Fases", subtitle_style))
     story.append(HRFlowable(width="100%", thickness=1.5, color=C_ACCENT, spaceBefore=2, spaceAfter=8))
 
     meta_data = [
-        [Paragraph("<b>Proyecto:</b>", meta_label), Paragraph("Talent Intelligence Career (TIC)", meta_val),
+        [Paragraph("<b>Proyecto:</b>", meta_label), Paragraph("CV Ejecutivo Inteligente", meta_val),
          Paragraph("<b>Fecha:</b>", meta_label), Paragraph("Septiembre 2026", meta_val)],
         [Paragraph("<b>Autor:</b>", meta_label), Paragraph("Rubén David Barrios Bello", meta_val),
          Paragraph("<b>Estado:</b>", meta_label), Paragraph("Fase 1 Operativa (v1.0.0)", meta_val)],
-        [Paragraph("<b>Repositorio:</b>", meta_label), Paragraph("rubenbarrios-bigdata/talent-intelligence-career", meta_val),
+        [Paragraph("<b>Repositorio:</b>", meta_label), Paragraph("rubenbarrios-bigdata/cv-ejecutivo-inteligente", meta_val),
          Paragraph("<b>Enfoque:</b>", meta_label), Paragraph("2 Fases: Diseño CV + Inteligencia & Analytics", meta_val)]
     ]
     t_meta = Table(meta_data, colWidths=[1.0*inch, 2.7*inch, 0.9*inch, 2.6*inch])
@@ -203,7 +203,7 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
 
     story.append(Paragraph("1. Visión y Fundamento Estratégico", h1_style))
     story.append(Paragraph(
-        "El proyecto <b>Talent Intelligence Career (TIC)</b> replantea el concepto de currículum tradicional. "
+        "El proyecto <b>CV Ejecutivo Inteligente</b> replantea el concepto de currículum tradicional. "
         "En lugar de ser un documento estático, evoluciona hacia un <b>producto de datos interactivo y vivo</b>, "
         "donde la propia plataforma sirve como prueba empírica e irrefutable de las competencias del candidato en "
         "maquetación web, analítica digital de comportamiento, ingeniería de datos en la nube e inteligencia artificial.",
@@ -319,7 +319,7 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
          Paragraph("Gratuito ($0 USD)", body_style),
          Paragraph("Crear tag oficial <code>v1.0.0</code> y documentar <code>CHANGELOG.md</code>.", body_style)],
         [Paragraph("<b>INPI</b><br/>Registro de Marca", body_style),
-         Paragraph("Nombre comercial distintivo (ej. <i>Talent Intelligence Career - TIC</i>).", body_style),
+         Paragraph("Nombre comercial distintivo (ej. <i>CV Ejecutivo Inteligente</i>).", body_style),
          Paragraph("Arancel UMAPI mensual<br/>(Fase posterior)", body_style),
          Paragraph("Evaluar recién al consolidar la marca y lanzar el agente de IA en Fase 2.", body_style)]
     ]
@@ -431,12 +431,12 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
     ))
 
     # =========================================================================
-    # PÁGINA 5: MACRO-FASE 3 (PLATAFORMA SAAS MULTIUSUARIO TIC®) Y ROADMAP GLOBAL
+    # PÁGINA 5: MACRO-FASE 3 (PLATAFORMA SAAS MULTIUSUARIO) Y ROADMAP GLOBAL
     # =========================================================================
     story.append(PageBreak())
-    story.append(Paragraph("6. Macro-Fase 3: Plataforma SaaS Multiusuario — TIC® Cloud Platform", h1_style))
+    story.append(Paragraph("6. Macro-Fase 3: Plataforma SaaS Multiusuario — Cloud Platform", h1_style))
     story.append(Paragraph(
-        "La culminación estratégica de TIC® trasciende el portafolio individual y evoluciona hacia una <b>plataforma tecnológica "
+        "La culminación estratégica de la plataforma trasciende el portafolio individual y evoluciona hacia una <b>plataforma tecnológica "
         "multiusuario (Software as a Service - SaaS)</b> que permite a cualquier profesional o candidato transformar su currículum estático "
         "en un Executive Dashboard interactivo con telemetría en tiempo real y asistente de inteligencia artificial.",
         body_style
@@ -449,9 +449,9 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
         "archivo estructurado de datos (<code>data.json</code>) sin necesidad de que el usuario programe código.<br/>"
         "• <b>Portal de Telemetría para el Postulante (Recruiter Insights):</b> Cada usuario dispone de un panel privado donde monitorea en tiempo "
         "real el impacto de sus postulaciones: empresas que abrieron su enlace, tiempo promedio de lectura, KPIs con más clics y descargas de PDF.<br/>"
-        "• <b>Motor de Enlaces Dinámicos y Marca Blanca:</b> Asignación de URLs personalizadas (ej. <code>tic.career/@usuario</code>) con soporte "
+        "• <b>Motor de Enlaces Dinámicos y Marca Blanca:</b> Asignación de URLs personalizadas (ej. <code>cv-inteligente.app/@usuario</code>) con soporte "
         "para dominios propios y exportación de versiones PDF optimizadas contra filtros ATS de selección.<br/>"
-        "• <b>Growth Loop Viral Orgánico:</b> Cada CV generado incluye al pie la leyenda <i>'Desarrollado con Talent Intelligence Career (TIC)®'</i>, "
+        "• <b>Growth Loop Viral Orgánico:</b> Cada CV generado incluye al pie la leyenda <i>'Desarrollado con CV Ejecutivo Inteligente'</i>, "
         "convirtiendo cada postulación enviada en un canal de adquisición natural de nuevos usuarios para la plataforma.",
         body_style
     ))
@@ -477,7 +477,7 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
          Paragraph("Agente conversacional Gemini API con Smart Navigator (deep linking) y Matcher ATS de vacantes.", body_style),
          Paragraph("Google Gemini API, Prompt Engineering, JS Controls", body_style),
          Paragraph("<b>Planificado</b>", body_style)],
-        [Paragraph("<b>Fase 3: SaaS Platform</b><br/>TIC® Cloud Multiusuario", body_style),
+        [Paragraph("<b>Fase 3: SaaS Platform</b><br/>Cloud Multiusuario", body_style),
          Paragraph("Plataforma web con autenticación, parser automático de PDFs con IA y portal de métricas para postulantes.", body_style),
          Paragraph("Next.js/Python, PostgreSQL/Supabase, Gemini Multimodal", body_style),
          Paragraph("<b>Visión Estratégica</b>", body_style)]
@@ -519,7 +519,7 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
     print(f"PDF generado con éxito: {filename}")
 
 if __name__ == "__main__":
-    primary_file = "Plan_Estrategico_Talent_Intelligence_Career_TIC_Ruben_Barrios.pdf"
+    primary_file = "Plan_Estrategico_CV_Ejecutivo_Inteligente_Ruben_Barrios.pdf"
     fallback_file = "Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barrios.pdf"
     build_pdf(primary_file)
     try:
