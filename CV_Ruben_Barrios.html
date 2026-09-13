@@ -3943,7 +3943,7 @@ function trackCvEvent(eventName, eventParams = {}) {
 let lastTrackedKpiTime = 0;
 function trackKpiClick(kpiId, kpiNumber, kpiLabel, targetAnchor) {
     lastTrackedKpiTime = Date.now();
-    trackTicEvent("cv_kpi_interaction", {
+    trackCvEvent("cv_kpi_interaction", {
         kpi_id: kpiId,
         kpi_number: kpiNumber,
         kpi_label: kpiLabel,
@@ -3969,14 +3969,14 @@ window.trackLanguageSwitch = trackLanguageSwitch;
 window.trackExternalClick = trackExternalClick;
 
 function trackCertFilter(category, count = 0) {
-    trackTicEvent("cv_cert_filter", {
+    trackCvEvent("cv_cert_filter", {
         filter_category: category,
         certificates_shown: count
     });
 }
 
 function trackDocumentDownload(docType, docName) {
-    trackTicEvent("cv_document_download", {
+    trackCvEvent("cv_document_download", {
         document_type: docType,
         document_name: docName
     });
@@ -3986,19 +3986,19 @@ function trackDocumentDownload(docType, docName) {
 }
 
 function trackThemeToggle(newTheme) {
-    trackTicEvent("cv_theme_toggle", {
+    trackCvEvent("cv_theme_toggle", {
         theme_applied: newTheme
     });
 }
 
 function trackLanguageSwitch(newLang) {
-    trackTicEvent("cv_language_switch", {
+    trackCvEvent("cv_language_switch", {
         selected_language: newLang
     });
 }
 
 function trackExternalClick(linkType, targetUrl) {
-    trackTicEvent("cv_external_click", {
+    trackCvEvent("cv_external_click", {
         link_type: linkType,
         target_url: targetUrl
     });
@@ -4018,7 +4018,7 @@ function initScrollDepthTracking() {
         [25, 50, 75, 100].forEach(threshold => {
             if (scrollPercent >= threshold && !trackedThresholds.has(threshold)) {
                 trackedThresholds.add(threshold);
-                trackTicEvent("cv_scroll_depth", {
+                trackCvEvent("cv_scroll_depth", {
                     depth_percentage: threshold
                 });
             }
