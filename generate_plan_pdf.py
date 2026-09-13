@@ -59,7 +59,7 @@ class NumberedCanvas(canvas.Canvas):
         self.restoreState()
 
 
-def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barrios.pdf"):
+def build_pdf(filename="Plan_Estrategico_CV_Ejecutivo_Inteligente_Ruben_Barrios.pdf"):
     doc = SimpleDocTemplate(
         filename,
         pagesize=letter,
@@ -520,11 +520,6 @@ def build_pdf(filename="Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barr
 
 if __name__ == "__main__":
     primary_file = "Plan_Estrategico_CV_Ejecutivo_Inteligente_Ruben_Barrios.pdf"
-    fallback_file = "Plan_Estrategico_Personal_Career_Intelligence_Ruben_Barrios.pdf"
     build_pdf(primary_file)
-    try:
-        build_pdf(fallback_file)
-    except PermissionError:
-        print(f"Nota: {fallback_file} está actualmente abierto en el visor del usuario y se omitió su sobreescritura.")
 
 
