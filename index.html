@@ -4287,7 +4287,17 @@ function initTelemetryListeners() {
             }
         ];
 
-        function renderProjects(lang = 'es') {
+        function handleProjectClick(type, url) {
+    if (typeof trackExternalClick === 'function') {
+        trackExternalClick(type, url);
+    }
+    if (url) {
+        window.open(url, '_blank', 'noopener');
+    }
+}
+window.handleProjectClick = handleProjectClick;
+
+function renderProjects(lang = 'es') {
             const grid = document.getElementById('projectGrid') || document.querySelector('#proyectosSection .project-grid');
             if (!grid) return;
             const isEn = lang === 'en';
@@ -4303,12 +4313,12 @@ function initTelemetryListeners() {
                     const pill = typeof p.pillText === 'object' ? (p.pillText[lang] || p.pillText.es) : (p.pillText || 'Repositorio');
                     const bullets = typeof p.bullets === 'object' && !Array.isArray(p.bullets) ? (p.bullets[lang] || p.bullets.es) : p.bullets;
                     return `
-                        <div class="project-item project-mvp-highlight" onclick="window.open('${p.url}', '_blank', 'noopener')" title="${repoTitle}" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.open('${p.url}', '_blank', 'noopener');}">
+                        <div class="project-item project-mvp-highlight" onclick="handleProjectClick('project_repo', '${p.url}')" title="${repoTitle}" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.open('${p.url}', '_blank', 'noopener');}">
                             <div class="project-title-row">
                                 <span class="project-name">${title}</span>
                                 <div class="project-badges-group">
                                     <span class="project-tech-badge">${badgeText}</span>
-                                    <a href="${p.url}" target="_blank" rel="noopener" class="project-github-pill" onclick="event.stopPropagation();"><i class="fab fa-github"></i> ${pill} <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
+                                    <a href="${p.url}" target="_blank" rel="noopener" class="project-github-pill" onclick="event.stopPropagation(); handleProjectClick('project_repo', '${p.url}');"><i class="fab fa-github"></i> ${pill} <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i></a>
                                 </div>
                             </div>
                             <ul class="project-bullets">
@@ -4320,7 +4330,7 @@ function initTelemetryListeners() {
 
                 const descText = typeof p.desc === 'object' ? (p.desc[lang] || p.desc.es) : p.desc;
                 const pbiBtnHtml = p.pbiUrl ? `
-                    <a href="${p.pbiUrl}" target="_blank" rel="noopener" class="project-pbi-pill" title="${pbiTitle}" onclick="event.stopPropagation();">
+                    <a href="${p.pbiUrl}" target="_blank" rel="noopener" class="project-pbi-pill" title="${pbiTitle}" onclick="event.stopPropagation(); handleProjectClick('project_demo', '${p.pbiUrl}');">
                         <i class="fas fa-chart-pie"></i> ${liveDemoText} <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i>
                     </a>
                 ` : '';
@@ -4329,13 +4339,13 @@ function initTelemetryListeners() {
                 const mainTargetTitle = p.pbiUrl ? pbiTitle : repoTitle;
 
                 return `
-                    <div class="project-item" onclick="window.open('${mainTargetUrl}', '_blank', 'noopener')" title="${mainTargetTitle}" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.open('${mainTargetUrl}', '_blank', 'noopener');}">
+                    <div class="project-item" onclick="handleProjectClick('${p.pbiUrl ? 'project_demo' : 'project_repo'}', '${mainTargetUrl}')" title="${mainTargetTitle}" role="link" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.open('${mainTargetUrl}', '_blank', 'noopener');}">
                         <div class="project-title-row">
                             <span class="project-name">${iconHtml}${title}</span>
                             <div class="project-badges-group">
                                 <span class="project-tech-badge">${badgeText}</span>
                                 ${pbiBtnHtml}
-                                <a href="${p.url}" target="_blank" rel="noopener" class="project-github-pill" title="${repoTitle}" onclick="event.stopPropagation();">
+                                <a href="${p.url}" target="_blank" rel="noopener" class="project-github-pill" title="${repoTitle}" onclick="event.stopPropagation(); handleProjectClick('project_repo', '${p.url}');">
                                     <i class="fab fa-github"></i> <i class="fas fa-external-link-alt" style="font-size:0.65rem;"></i>
                                 </a>
                             </div>
@@ -4627,6 +4637,7 @@ function initTelemetryListeners() {
             } else {
                 item.classList.add('open');
                 if (headerBtn) headerBtn.setAttribute('aria-expanded', 'true');
+                if (typeof trackCertFilter === 'function') trackCertFilter(id, 1);
             }
         }
 
@@ -4659,6 +4670,9 @@ function initTelemetryListeners() {
             } else {
                 if (label) label.innerText = expandText;
                 if (btn) btn.innerHTML = `<i class="fas fa-angles-down"></i> <span id="toggleAllText">${expandText}</span>`;
+            }
+            if (typeof trackCertFilter === 'function') {
+                trackCertFilter(allExpanded ? 'desplegar_todos' : 'colapsar_todos', items.length);
             }
         }
 
