@@ -7,6 +7,7 @@
 [![Ver CV en HTML](https://img.shields.io/badge/📄%20CV%20en%20HTML-CV__Ruben__Barrios.html-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/CV_Ruben_Barrios.html)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Rubén%20Barrios-0077b5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ruben-barrios)
 [![GitHub](https://img.shields.io/badge/GitHub-rubenbarrios--bigdata-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rubenbarrios-bigdata)
+[![Telegram Bot Alerts](https://img.shields.io/badge/🤖%20Telegram%20Bot-Real--Time%20Alerts-229ED9?style=for-the-badge&logo=telegram&logoColor=white)](#-sistema-de-telemetría-en-tiempo-real--alertas-vía-telegram-bot)
 
 <br>
 
@@ -165,10 +166,49 @@ Para maximizar la visibilidad ante reclutadores técnicos y hiring managers en L
 
 ---
 
+## 🤖 Sistema de Telemetría en Tiempo Real & Alertas vía Telegram Bot
+
+A diferencia de un currículum estático convencional, este proyecto incorpora una capa de **observabilidad y notificaciones push en tiempo real** (`TIC_TG_NOTIFIER`) orientada a alertar inmediatamente al autor cuando un reclutador interactúa con su perfil profesional:
+
+```
+[ Visitante / Reclutador ]
+         │
+         ▼
+[ CV Ejecutivo Inteligente (GitHub Pages) ]
+         │
+    ┌────┴───────────────────────────────┐
+    ▼                                    ▼
+[ Telemetry Engine ]              [ IP Geolocation API ]
+(Tiempo > 8s, Scroll > 25%,        (Ciudad, País, Red)
+ Clic en PDF, WhatsApp, LinkedIn)        │
+    │                                    │
+    └──────────────────┬─────────────────┘
+                       ▼
+         [ Telegram Bot API (HTTPS/CORS) ]
+                       ▼
+       [ 📱 Alerta Push en el Celular de Rubén ]
+```
+
+### 🔔 Tipos de Eventos Monitoreados:
+
+1. **👁️ Visita Calificada (Filtro Anti-Rebote & Anti-Crawler)**:
+   - Se evita el spam generado por rebotes accidentales o indexadores automáticos.
+   - La alerta se dispara únicamente si el visitante permanece **más de 8 segundos** o realiza un **scroll activo (>25%)** por la experiencia profesional.
+   - Notifica: **Ubicación aproximada** (Ciudad y País vía API abierta), **Dispositivo** (iOS, Android, Windows, Mac), **Fuente de Referencia** (`document.referrer`: LinkedIn, WhatsApp, Google) y página de aterrizaje.
+2. **📥 Descarga del CV en PDF (Señal de Alto Interés)**:
+   - Notificación de máxima prioridad cuando un reclutador pulsa **"Descargar CV en PDF"**, detallando el archivo descargado para preparar un seguimiento ágil.
+3. **💬 Clics en Canales de Contacto Directo**:
+   - Notifica en tiempo real si el usuario presiona los botones de **WhatsApp**, **LinkedIn** o **Email**.
+4. **🛡️ Filtro de Auto-Visitas (Modo Dueño)**:
+   - Admite el parámetro URL `?me=1` para registrar el flag `tic_owner_mode: true` en el almacenamiento local del autor, silenciando automáticamente sus propias sesiones de prueba y edición.
+
+---
+
 ## 🛠️ Tecnologías Utilizadas
 
 - **Frontend Core**: HTML5 Semántico, CSS3 Moderno (Variables CSS / Tokens de Diseño, Glassmorphism, CSS Grid & Flexbox).
 - **Lógica & Reactividad**: JavaScript Vanilla (ES6+) con `fetch API`, `async/await`, y persistencia de temas mediante `localStorage`.
+- **Telemetría & Eventos en Tiempo Real**: Motor de observabilidad client-side integrado con Telegram Bot API, geolocalización IP mediante API abierta (`freeipapi`) y capa DataLayer estándar compatible con Google Tag Manager (GTM) y Google Analytics 4 (GA4).
 - **Capa de Datos**: JSON estructurado (`data.json`) desacoplado de la UI.
 - **Tipografía & Estética**: Google Fonts (*Inter*, *Playfair Display*), FontAwesome 6.
 - **Exportabilidad**: Hojas de estilo `@media print` optimizadas para generar PDF limpio sin cortes indeseados.
