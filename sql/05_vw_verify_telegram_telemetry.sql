@@ -34,7 +34,7 @@ WITH telemetry_events AS (
     (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'contact_channel') AS contact_channel,
     (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'document_name') AS doc_name
   FROM
-    `rubenbarrios-analytics.analytics_cv_ejecutivo.events_*`
+    `talent-intelligence-career-tic.analytics_553518369.events_*`
   WHERE
     _TABLE_SUFFIX >= '20260901'
     -- Exclusión analítica de datacenters de crawlers conocidos
