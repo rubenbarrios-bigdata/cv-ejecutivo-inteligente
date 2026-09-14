@@ -26,7 +26,7 @@ SELECT
     ELSE '✅ Tráfico Humano Legítimo'
   END AS clasificacion_trafico
 FROM
-  `rubenbarrios-analytics.analytics_cv_ejecutivo.events_*` -- Ajustar a tu dataset si usas talent-intelligence-career-tic.analytics_tic.events_*
+  `talent-intelligence-career-tic.analytics_553518369.events_*`
 WHERE
   _TABLE_SUFFIX >= '20260901'
 GROUP BY
@@ -48,7 +48,7 @@ WITH raw_events AS (
       ELSE FALSE
     END AS es_bot_datacenter
   FROM
-    `rubenbarrios-analytics.analytics_cv_ejecutivo.events_*`
+    `talent-intelligence-career-tic.analytics_553518369.events_*`
   WHERE
     _TABLE_SUFFIX >= '20260901'
 )
