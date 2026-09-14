@@ -192,6 +192,72 @@ ORDER BY
 
 ---
 
+### 5. Auditoría y Verificación de Telemetría Reactiva (Telegram Webhook)
+* **Archivo:** [`05_vw_verify_telegram_telemetry.sql`](05_vw_verify_telegram_telemetry.sql)
+* **Objetivo:** Auditar la recepción de `telegram_alert_dispatch`, desanidar los parámetros clave (`alert_type`, `lead_action`, `user_location`, `device_type`) y validar el SLA de entrega frente a macroconversiones reales (Descarga PDF y Contactos).
+
+#### Consulta SQL:
+```sql
+WITH telemetry_events AS (
+  SELECT
+    event_date,
+    TIMESTAMP_MICROS(event_timestamp) AS timestamp_evento,
+    event_name,
+    user_pseudo_id,
+    (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'ga_session_id') AS session_id,
+    geo.country AS pais,
+    geo.city AS ciudad,
+    device.category AS dispositivo_ga4,
+    
+    -- Parámetros específicos de la alerta de Telegram
+    (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'alert_type') AS alert_type,
+    (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'lead_action') AS lead_action,
+    (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'user_location') AS user_location,
+    (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'device_type') AS device_reported,
+    (SELECT value.string_value FROM UNNEST(event_params) WHERE key = 'candidate_id') AS candidate_id
+  FROM
+    `rubenbarrios-analytics.analytics_cv_ejecutivo.events_*`
+  WHERE
+    _TABLE_SUFFIX >= '20260901'
+    AND NOT (geo.country = 'United States' AND geo.city IN ('Boydton', 'Dulles', 'Ashburn', 'Council Bluffs', 'Boardman'))
+),
+
+daily_telemetry_audit AS (
+  SELECT
+    event_date,
+    COUNTIF(event_name = 'telegram_alert_dispatch') AS total_alertas_telegram,
+    COUNTIF(event_name = 'telegram_alert_dispatch' AND alert_type = 'hot_lead') AS alertas_hot_leads,
+    COUNTIF(event_name = 'telegram_alert_dispatch' AND alert_type = 'qualified_visit') AS alertas_visitas_calificadas,
+    COUNTIF(event_name IN ('cv_download_pdf', 'cv_document_download')) AS total_descargas_pdf,
+    COUNTIF(event_name = 'cv_contact_channel') AS total_contactos,
+    ROUND(
+      SAFE_DIVIDE(
+        COUNTIF(event_name = 'telegram_alert_dispatch' AND alert_type = 'hot_lead'),
+        COUNTIF(event_name IN ('cv_download_pdf', 'cv_document_download', 'cv_contact_channel'))
+      ) * 100, 2
+    ) AS sla_cobertura_alertas_pct
+  FROM
+    telemetry_events
+  GROUP BY
+    event_date
+)
+
+SELECT
+  event_date,
+  total_alertas_telegram,
+  alertas_hot_leads,
+  alertas_visitas_calificadas,
+  total_descargas_pdf,
+  total_contactos,
+  sla_cobertura_alertas_pct
+FROM
+  daily_telemetry_audit
+ORDER BY
+  event_date DESC;
+```
+
+---
+
 ## 🚀 Cómo ejecutar estas consultas en Google Cloud
 
 1. Ingresar a [Google Cloud Console - BigQuery Studio](https://console.cloud.google.com/bigquery?project=talent-intelligence-career-tic).

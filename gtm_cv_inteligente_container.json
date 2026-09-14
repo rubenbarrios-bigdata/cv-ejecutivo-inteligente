@@ -446,6 +446,109 @@
         "firingTriggerId": [
           "107"
         ]
+      },
+      {
+        "accountId": "10000001",
+        "containerId": "20000001",
+        "tagId": "9",
+        "name": "GA4 Event - telegram_alert_dispatch",
+        "type": "gaawe",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "measurementIdOverride",
+            "value": "G-NQC5PHY67R"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "eventName",
+            "value": "telegram_alert_dispatch"
+          },
+          {
+            "type": "LIST",
+            "key": "eventParameters",
+            "list": [
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "name",
+                    "value": "alert_type"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{dlv - alert_type}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "name",
+                    "value": "lead_action"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{dlv - lead_action}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "name",
+                    "value": "user_location"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{dlv - user_location}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "name",
+                    "value": "device_type"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{dlv - device_type}}"
+                  }
+                ]
+              },
+              {
+                "type": "MAP",
+                "map": [
+                  {
+                    "type": "TEMPLATE",
+                    "key": "name",
+                    "value": "candidate_id"
+                  },
+                  {
+                    "type": "TEMPLATE",
+                    "key": "value",
+                    "value": "{{dlv - candidate_id}}"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "firingTriggerId": [
+          "108"
+        ]
       }
     ],
     "trigger": [
@@ -612,6 +715,30 @@
                 "type": "TEMPLATE",
                 "key": "arg1",
                 "value": "cv_external_click"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "10000001",
+        "containerId": "20000001",
+        "triggerId": "108",
+        "name": "Custom Event - telegram_alert_dispatch",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              {
+                "type": "TEMPLATE",
+                "key": "arg0",
+                "value": "{{_event}}"
+              },
+              {
+                "type": "TEMPLATE",
+                "key": "arg1",
+                "value": "telegram_alert_dispatch"
               }
             ]
           }
@@ -928,6 +1055,102 @@
             "type": "TEMPLATE",
             "key": "name",
             "value": "candidate_id"
+          }
+        ]
+      },
+      {
+        "accountId": "10000001",
+        "containerId": "20000001",
+        "variableId": "214",
+        "name": "dlv - alert_type",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "alert_type"
+          }
+        ]
+      },
+      {
+        "accountId": "10000001",
+        "containerId": "20000001",
+        "variableId": "215",
+        "name": "dlv - lead_action",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "lead_action"
+          }
+        ]
+      },
+      {
+        "accountId": "10000001",
+        "containerId": "20000001",
+        "variableId": "216",
+        "name": "dlv - user_location",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "user_location"
+          }
+        ]
+      },
+      {
+        "accountId": "10000001",
+        "containerId": "20000001",
+        "variableId": "217",
+        "name": "dlv - device_type",
+        "type": "v",
+        "parameter": [
+          {
+            "type": "INTEGER",
+            "key": "dataLayerVersion",
+            "value": "2"
+          },
+          {
+            "type": "BOOLEAN",
+            "key": "setDefaultValue",
+            "value": "false"
+          },
+          {
+            "type": "TEMPLATE",
+            "key": "name",
+            "value": "device_type"
           }
         ]
       }

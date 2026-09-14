@@ -3860,6 +3860,17 @@ const CV_TG_NOTIFIER = (function() {
                     `📄 <b>Sección inicial:</b> CV Ejecutivo`;
 
         sendTelegramMessage(msg);
+
+        // Telemetría reactiva hacia DataLayer (GTM & GA4)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'telegram_alert_dispatch',
+            alert_type: 'qualified_visit',
+            lead_action: triggerType === 'scroll' ? 'scroll_depth_25' : 'active_reading_timer',
+            user_location: locStr || 'Desconocida',
+            device_type: getDeviceInfo(),
+            candidate_id: 'ruben_barrios'
+        });
     }
 
     async function notifyPdfDownload(docName) {
@@ -3878,6 +3889,18 @@ const CV_TG_NOTIFIER = (function() {
                     `🔗 <b>Origen:</b> ${getReferrerInfo()}`;
 
         sendTelegramMessage(msg);
+
+        // Telemetría reactiva hacia DataLayer (GTM & GA4)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'telegram_alert_dispatch',
+            alert_type: 'hot_lead',
+            lead_action: 'cv_download_pdf',
+            document_name: docName,
+            user_location: locStr || 'Desconocida',
+            device_type: getDeviceInfo(),
+            candidate_id: 'ruben_barrios'
+        });
     }
 
     async function notifyContactClick(channel, targetUrl) {
@@ -3897,7 +3920,42 @@ const CV_TG_NOTIFIER = (function() {
                     `🔗 <b>Origen:</b> ${getReferrerInfo()}`;
 
         sendTelegramMessage(msg);
+
+        // Telemetría reactiva hacia DataLayer (GTM & GA4)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'telegram_alert_dispatch',
+            alert_type: 'hot_lead',
+            lead_action: 'contact_' + channel,
+            user_location: locStr || 'Desconocida',
+            device_type: getDeviceInfo(),
+            candidate_id: 'ruben_barrios'
+        });
     }
+
+    // Wrapper estandarizado según Dev Spec del Plan de Medición
+    function sendTelegramAlert(actionType, detailPayload = {}) {
+        const ua = navigator.userAgent.toLowerCase();
+        if (ua.includes('bot') || ua.includes('crawl') || ua.includes('spider')) return;
+
+        const dev = detailPayload.device || getDeviceInfo();
+        const act = detailPayload.activity || actionType;
+        const loc = detailPayload.user_location || 'Desconocida';
+
+        const message = `🔔 ¡Alerta de Alto Interés!\n📄 Acción: ${actionType}\n📱 Dispositivo: ${dev}\n⏱️ Actividad: ${act}`;
+        sendTelegramMessage(message);
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'telegram_alert_dispatch',
+            alert_type: detailPayload.alert_type || 'hot_lead',
+            lead_action: actionType,
+            user_location: loc,
+            device_type: dev,
+            candidate_id: 'ruben_barrios'
+        });
+    }
+    window.sendTelegramAlert = sendTelegramAlert;
 
     function init() {
         setTimeout(() => {
@@ -3918,7 +3976,8 @@ const CV_TG_NOTIFIER = (function() {
     return {
         init,
         notifyPdfDownload,
-        notifyContactClick
+        notifyContactClick,
+        sendTelegramAlert
     };
 })();
 

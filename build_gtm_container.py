@@ -258,6 +258,59 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                         }
                     ],
                     "firingTriggerId": ["107"]
+                },
+                {
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
+                    "tagId": "9",
+                    "name": "GA4 Event - telegram_alert_dispatch",
+                    "type": "gaawe",
+                    "parameter": [
+                        {"type": "TEMPLATE", "key": "measurementIdOverride", "value": ga4_id},
+                        {"type": "TEMPLATE", "key": "eventName", "value": "telegram_alert_dispatch"},
+                        {
+                            "type": "LIST",
+                            "key": "eventParameters",
+                            "list": [
+                                {
+                                    "type": "MAP",
+                                    "map": [
+                                        {"type": "TEMPLATE", "key": "name", "value": "alert_type"},
+                                        {"type": "TEMPLATE", "key": "value", "value": "{{dlv - alert_type}}"}
+                                    ]
+                                },
+                                {
+                                    "type": "MAP",
+                                    "map": [
+                                        {"type": "TEMPLATE", "key": "name", "value": "lead_action"},
+                                        {"type": "TEMPLATE", "key": "value", "value": "{{dlv - lead_action}}"}
+                                    ]
+                                },
+                                {
+                                    "type": "MAP",
+                                    "map": [
+                                        {"type": "TEMPLATE", "key": "name", "value": "user_location"},
+                                        {"type": "TEMPLATE", "key": "value", "value": "{{dlv - user_location}}"}
+                                    ]
+                                },
+                                {
+                                    "type": "MAP",
+                                    "map": [
+                                        {"type": "TEMPLATE", "key": "name", "value": "device_type"},
+                                        {"type": "TEMPLATE", "key": "value", "value": "{{dlv - device_type}}"}
+                                    ]
+                                },
+                                {
+                                    "type": "MAP",
+                                    "map": [
+                                        {"type": "TEMPLATE", "key": "name", "value": "candidate_id"},
+                                        {"type": "TEMPLATE", "key": "value", "value": "{{dlv - candidate_id}}"}
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "firingTriggerId": ["108"]
                 }
             ],
             "trigger": [
@@ -369,6 +422,22 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                             "parameter": [
                                 {"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"},
                                 {"type": "TEMPLATE", "key": "arg1", "value": "cv_external_click"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
+                    "triggerId": "108",
+                    "name": "Custom Event - telegram_alert_dispatch",
+                    "type": "CUSTOM_EVENT",
+                    "customEventFilter": [
+                        {
+                            "type": "EQUALS",
+                            "parameter": [
+                                {"type": "TEMPLATE", "key": "arg0", "value": "{{_event}}"},
+                                {"type": "TEMPLATE", "key": "arg1", "value": "telegram_alert_dispatch"}
                             ]
                         }
                     ]
@@ -529,6 +598,54 @@ def generate_gtm_json(gtm_id="GTM-P2Z4TZ4Z", ga4_id="G-NQC5PHY67R"):
                         {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
                         {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
                         {"type": "TEMPLATE", "key": "name", "value": "candidate_id"}
+                    ]
+                },
+                {
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
+                    "variableId": "214",
+                    "name": "dlv - alert_type",
+                    "type": "v",
+                    "parameter": [
+                        {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
+                        {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
+                        {"type": "TEMPLATE", "key": "name", "value": "alert_type"}
+                    ]
+                },
+                {
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
+                    "variableId": "215",
+                    "name": "dlv - lead_action",
+                    "type": "v",
+                    "parameter": [
+                        {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
+                        {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
+                        {"type": "TEMPLATE", "key": "name", "value": "lead_action"}
+                    ]
+                },
+                {
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
+                    "variableId": "216",
+                    "name": "dlv - user_location",
+                    "type": "v",
+                    "parameter": [
+                        {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
+                        {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
+                        {"type": "TEMPLATE", "key": "name", "value": "user_location"}
+                    ]
+                },
+                {
+                    "accountId": num_acc,
+                    "containerId": num_cnt,
+                    "variableId": "217",
+                    "name": "dlv - device_type",
+                    "type": "v",
+                    "parameter": [
+                        {"type": "INTEGER", "key": "dataLayerVersion", "value": "2"},
+                        {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
+                        {"type": "TEMPLATE", "key": "name", "value": "device_type"}
                     ]
                 }
             ]
