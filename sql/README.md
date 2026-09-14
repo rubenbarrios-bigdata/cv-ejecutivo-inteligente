@@ -24,7 +24,7 @@ flowchart LR
 
 Los eventos exportados por GA4 contienen el esquema nativo de Google Analytics, donde cada evento incluye un array anidado de tipo `ARRAY<STRUCT<key STRING, value STRUCT<...>>>` denominado `event_params`.
 
-A continuación se presentan los **3 modelos analíticos en producción**, con el **código SQL de cada consulta** y la **evidencia de los resultados reales ejecutados en Google Cloud BigQuery**:
+A continuación se presentan los **6 modelos analíticos en producción**, con el **código SQL de cada consulta** y la **evidencia de los resultados reales ejecutados en Google Cloud BigQuery**:
 
 ---
 
@@ -255,6 +255,110 @@ FROM
 ORDER BY
   event_date DESC;
 ```
+
+---
+
+### 6. Auditoría de Tráfico, Detección de Bots y Calidad de Datos (Data Quality)
+* **Archivo:** [`06_audit_bots_and_data_quality.sql`](06_audit_bots_and_data_quality.sql)
+* **Objetivos:**
+  1. Identificar y clasificar heurísticamente sesiones provenientes de centros de datos cloud (Microsoft Azure, AWS, Google Cloud: *Boydton*, *Dulles*, *Ashburn*, *Council Bluffs*, *Boardman*).
+  2. Evaluar el impacto de **Data Quality** en las decisiones de negocio, aislando la dilución de la tasa de conversión causada por tráfico de bots e indexadores automatizados.
+
+---
+
+#### 6.1 Auditoría Geográfica y Detección de Anomalías
+
+Identifica el origen geográfico, dispositivo y eventos clave, categorizando el tráfico en bots sintéticos de datacenters vs. reclutadores humanos legítimos:
+
+##### 📸 Evidencia en Google Cloud BigQuery Studio:
+<div align="center">
+  <img src="../screenshots/07_bigquery_bot_audit_data_quality.png" alt="BigQuery - Auditoría de Tráfico y Calidad de Datos" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+  <p><em>Consulta 1: Ejecución en BigQuery Studio clasificando sesiones de datacenters cloud (Azure/AWS/GCP) con 0 conversiones frente a visitas humanas con alta interacción.</em></p>
+</div>
+
+##### Consulta SQL:
+```sql
+SELECT
+  geo.country AS pais,
+  geo.city AS ciudad,
+  device.category AS dispositivo,
+  COUNT(DISTINCT (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'ga_session_id')) AS total_sesiones,
+  COUNTIF(event_name = 'page_view') AS total_visitas_pagina,
+  COUNTIF(event_name IN ('cv_document_download', 'cv_download_pdf', 'cv_contact_channel')) AS conversiones_clave,
+  CASE
+    WHEN geo.country = 'United States' AND geo.city IN ('Boydton', 'Dulles', 'Ashburn', 'Council Bluffs', 'Boardman')
+      THEN '🤖 Bot Sintético (Azure / AWS / GCP Datacenter)'
+    ELSE '✅ Tráfico Humano Legítimo'
+  END AS clasificacion_trafico
+FROM
+  `talent-intelligence-career-tic.analytics_553518369.events_*`
+GROUP BY
+  pais, ciudad, dispositivo, clasificacion_trafico;
+```
+
+##### 📊 Resultado Real en BigQuery:
+| Fila | País | Ciudad | Dispositivo | Total Sesiones | Total Visitas Página | Conversiones Clave | Clasificación de Tráfico |
+| :---: | :--- | :--- | :--- | :---: | :---: | :---: | :--- |
+| **1** | United States | Ashburn | mobile | **4** | 4 | 0 | 🤖 Bot Sintético (Azure / AWS / GCP Datacenter) |
+| **2** | United States | Council Bluffs | mobile | **3** | 3 | 0 | 🤖 Bot Sintético (Azure / AWS / GCP Datacenter) |
+| **3** | United States | Ashburn | desktop | **2** | 2 | 0 | 🤖 Bot Sintético (Azure / AWS / GCP Datacenter) |
+| **4** | Argentina | Buenos Aires | mobile | **13** | 142 | 12 | ✅ Tráfico Humano Legítimo |
+| **5** | Argentina | Buenos Aires | desktop | **6** | 55 | 2 | ✅ Tráfico Humano Legítimo |
+
+> **Insight de Negocio & Criterio Analítico:** El 100% de las sesiones originadas en datacenters de EE.UU. (Ashburn, Council Bluffs) presentan un ratio de 1 página vista por sesión y 0 conversiones, tratándose de crawlers y validadores automatizados. En contraste, el tráfico humano legítimo (Buenos Aires) exhibe alta profundidad de lectura (197 páginas vistas totales) y 14 macroconversiones de contacto o descarga de CV.
+
+---
+
+#### 6.2 Impacto en el Negocio: Conversión Contaminada vs. Conversión Real
+
+Cuantifica el fenómeno de **dilución de métricas**: al existir sesiones fantasma en el denominador, la tasa de conversión global reportada parece artificialmente baja. Al depurar los datos, se calcula la verdadera efectividad del perfil.
+
+##### 📸 Evidencia en Google Cloud BigQuery Studio:
+<div align="center">
+  <img src="../screenshots/08_bigquery_conversion_business_impact.png" alt="BigQuery - Impacto en el Negocio Conversión Contaminada vs Real" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+  <p><em>Consulta 2: Comparación analítica de la tasa de conversión bruta (contaminada con bots) vs. tasa de conversión limpia (humana real).</em></p>
+</div>
+
+##### Consulta SQL:
+```sql
+WITH raw_events AS (
+  SELECT
+    (SELECT value.int_value FROM UNNEST(event_params) WHERE key = 'ga_session_id') AS session_id,
+    event_name,
+    CASE
+      WHEN geo.country = 'United States' AND geo.city IN ('Boydton', 'Dulles', 'Ashburn', 'Council Bluffs', 'Boardman')
+        THEN TRUE
+        ELSE FALSE
+    END AS es_bot_datacenter
+  FROM
+    `talent-intelligence-career-tic.analytics_553518369.events_*`
+)
+SELECT
+  COUNT(DISTINCT session_id) AS total_sesiones_brutas,
+  COUNT(DISTINCT IF(es_bot_datacenter, session_id, NULL)) AS sesiones_bots_descartadas,
+  COUNT(DISTINCT IF(NOT es_bot_datacenter, session_id, NULL)) AS sesiones_humanas_validas,
+  
+  -- Dilución de métricas: denominador inflado artificialmente por bots
+  ROUND(SAFE_DIVIDE(
+    COUNT(DISTINCT IF(event_name IN ('cv_document_download', 'cv_download_pdf', 'cv_contact_channel'), session_id, NULL)),
+    COUNT(DISTINCT session_id)
+  ) * 100, 2) AS tasa_conversion_bruta_contaminada_pct,
+
+  -- Tasa real de conversión humana
+  ROUND(SAFE_DIVIDE(
+    COUNT(DISTINCT IF(NOT es_bot_datacenter AND event_name IN ('cv_document_download', 'cv_download_pdf', 'cv_contact_channel'), session_id, NULL)),
+    COUNT(DISTINCT IF(NOT es_bot_datacenter, session_id, NULL))
+  ) * 100, 2) AS tasa_conversion_limpia_real_pct
+FROM
+  raw_events;
+```
+
+##### 📊 Resultado Real en BigQuery:
+| Total Sesiones Brutas | Sesiones Bots Descartadas | Sesiones Humanas Válidas | Tasa Conversión Bruta Contaminada | Tasa Conversión Limpia Real |
+| :---: | :---: | :---: | :---: | :---: |
+| **54** | **9** *(16.7% bots)* | **45** | **5.56%** | 🎯 **6.67%** |
+
+> **Insight de Negocio & Data Quality:** De 54 sesiones brutas registradas, 9 provinieron de datacenters no humanos (16.7% de ruido sintético). Al dejar los bots en la muestra, la tasa de conversión se diluye al **5.56%**. Tras aplicar la depuración y aislamiento de Data Quality, la tasa de conversión real humana asciende a **6.67%**, reflejando la verdadera efectividad del CV ante reclutadores reales (**+1.11 puntos porcentuales** de impacto neto cuantificado).
 
 ---
 

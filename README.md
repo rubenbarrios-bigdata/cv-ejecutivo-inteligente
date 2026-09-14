@@ -39,6 +39,7 @@ El repositorio incluye el **CV completo en formato HTML nativo**, estructurado c
 | **CV Web Mobile (HTML)** | [`CV_Ruben_Barrios_Mobile.html`](CV_Ruben_Barrios_Mobile.html) & [`mobile.html`](mobile.html) | 📱 [Abrir versión Mobile en GitHub Pages](https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/CV_Ruben_Barrios_Mobile.html) | Versión adaptada con navegación vertical optimizada para pantallas táctiles de celulares. |
 | **Descarga Directa del Código HTML** | [`CV_Ruben_Barrios.html`](CV_Ruben_Barrios.html) | 📥 [Descargar archivo .html](https://raw.githubusercontent.com/rubenbarrios-bigdata/cv-ejecutivo-inteligente/main/CV_Ruben_Barrios.html) | Podés descargarlo y abrirlo con doble clic en cualquier navegador (Chrome, Edge, Safari, Firefox) sin necesidad de internet ni servidores. |
 | **Plan de Medición Digital (Excel)** | [Plan_de_Medicion_Digital_CV_Ejecutivo_Inteligente.xlsx](Plan_de_Medicion_Digital_CV_Ejecutivo_Inteligente.xlsx) | 📊 [Descargar Plan de Medición (.xlsx)](https://github.com/rubenbarrios-bigdata/cv-ejecutivo-inteligente/raw/main/Plan_de_Medicion_Digital_CV_Ejecutivo_Inteligente.xlsx) | Tracking Plan Enterprise: Matriz de eventos GA4/GTM, variables DataLayer, definiciones personalizadas y SQL para BigQuery. |
+| **Modelos Analíticos SQL en BigQuery** | [`sql/`](sql/) & [`sql/README.md`](sql/README.md) | 🏛️ [Ver Modelos SQL](sql/README.md) | 6 modelos de datos en Google Cloud BigQuery: desanidado de eventos GA4, funnels de conversión, auditoría de bots y Data Quality. |
 | **Versión en Documento PDF** | [`CV_Ruben_Barrios_Analista_De_Datos.pdf`](CV_Ruben_Barrios_Analista_De_Datos.pdf) | 📕 [Ver / Descargar PDF](https://github.com/rubenbarrios-bigdata/cv-ejecutivo-inteligente/raw/main/CV_Ruben_Barrios_Analista_De_Datos.pdf) | Documento tradicional listo para adjuntar en sistemas de selección ATS o procesos estándar. |
 
 > 💡 **Ventaja de un CV en HTML para un Analista de Datos**:
@@ -88,11 +89,11 @@ Distribución tipo dashboard de dos columnas con experiencia estructurada y matr
 
 ---
 
-### 3. Modo Oscuro (Dark Theme Ejecutivo)
-Soporte completo para tema oscuro con paleta HSL optimizada para reducir fatiga visual y resaltar contrastes analíticos:
+### 3. Modo Oscuro (Dark Theme Ejecutivo & Barra de Contacto Rápido)
+Soporte completo para tema oscuro con paleta HSL optimizada para reducir fatiga visual, contrastes analíticos y dock interactivo de acceso inmediato a canales de contacto:
 
 <div align="center">
-  <img src="screenshots/03_dark_mode_view.png" alt="Modo Oscuro Dashboard" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+  <img src="screenshots/03_dark_mode_quickdock.png" alt="Modo Oscuro Dashboard con Barra de Contacto" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
 </div>
 
 ---
@@ -124,6 +125,26 @@ Notificaciones push reactivas en el smartphone alertando visitas calificadas, or
 
 ---
 
+### 7. Auditoría de Calidad de Datos y Detección de Bots en Google Cloud BigQuery
+Inspección heurística y filtrado analítico en BigQuery Studio clasificando sesiones de datacenters cloud (AWS/Azure/GCP) vs. tráfico humano verificado:
+
+<div align="center">
+  <img src="screenshots/07_bigquery_bot_audit_data_quality.png" alt="Auditoría de Bots y Calidad de Datos en BigQuery" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+  <p><em>Consulta 1: Detección y clasificación automática de crawlers/datacenters sin conversiones frente a visitas humanas con alta interacción.</em></p>
+</div>
+
+---
+
+### 8. Análisis de Impacto en Negocio: Conversión Limpia Real vs. Contaminada
+Cuantificación en BigQuery de la dilución de métricas por ruido sintético: corrección analítica de la tasa de conversión de **5.56%** (bruta) a **6.67%** (neta real humana):
+
+<div align="center">
+  <img src="screenshots/08_bigquery_conversion_business_impact.png" alt="Impacto en Negocio Conversión Contaminada vs Real en BigQuery" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+  <p><em>Consulta 2: Aislamiento de 9 sesiones no humanas (16.7% bots) demostrando el impacto positivo de Data Quality (+1.11 pp de conversión neta).</em></p>
+</div>
+
+---
+
 ## 🏗️ Arquitectura Técnica: Separación de Capas (Data Layer vs. Presentation)
 
 Como prueba del criterio analítico y de ingeniería de software, los datos del dashboard no están rígidamente acoplados al documento HTML. Se implementó una **arquitectura desacoplada**:
@@ -134,8 +155,16 @@ Como prueba del criterio analítico y de ingeniería de software, los datos del 
 ├── index.html                  <-- [PÁGINA RAÍZ] Entry point de GitHub Pages
 ├── CV_Ruben_Barrios_Mobile.html<-- [CV HTML MOBILE] Versión adaptada a smartphones
 ├── mobile.html                 <-- Alias para versión móvil
+├── sql/                        <-- [MOTOR ANALÍTICO] 6 Modelos SQL y Vistas BigQuery
+│   ├── 01_vw_kpi_interactions.sql
+│   ├── 02_vw_recruiter_engagement_funnel.sql
+│   ├── 03_vw_executive_summary.sql
+│   ├── 04_vw_looker_studio_clean_funnel.sql
+│   ├── 05_vw_verify_telegram_telemetry.sql
+│   ├── 06_audit_bots_and_data_quality.sql
+│   └── README.md
 ├── certs_images/               <-- Assets gráficos de credenciales y certificaciones
-└── screenshots/                <-- Capturas del render visual en alta definición
+└── screenshots/                <-- Capturas del render visual, alertas y BigQuery Studio
 ```
 
 ### ¿Cómo funciona la carga dinámica?
