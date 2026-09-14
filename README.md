@@ -115,6 +115,15 @@ Diseño responsivo nativo adaptado a dispositivos móviles para lectura ágil du
 
 ---
 
+### 6. Telemetría y Alertas Push en Vivo (Telegram Bot)
+Notificaciones push reactivas en el smartphone alertando visitas calificadas, origen de tráfico y descargas de PDF:
+
+<div align="center">
+  <img src="screenshots/06_telegram_alerts_realtime.png" alt="Alertas Push Telegram Bot" width="340" style="border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.25);">
+</div>
+
+---
+
 ## 🏗️ Arquitectura Técnica: Separación de Capas (Data Layer vs. Presentation)
 
 Como prueba del criterio analítico y de ingeniería de software, los datos del dashboard no están rígidamente acoplados al documento HTML. Se implementó una **arquitectura desacoplada**:
@@ -201,6 +210,15 @@ A diferencia de un currículum estático convencional, este proyecto incorpora u
    - Notifica en tiempo real si el usuario presiona los botones de **WhatsApp**, **LinkedIn** o **Email**.
 4. **🛡️ Filtro de Auto-Visitas (Modo Dueño)**:
    - Admite el parámetro URL `?me=1` para registrar el flag `cv_owner_mode: true` en el almacenamiento local del autor, silenciando automáticamente sus propias sesiones de prueba y edición.
+
+### 📱 Evidencia en Vivo: Alertas Push Recibidas en Telegram
+
+Captura real de las notificaciones push despachadas instantáneamente al móvil por el bot **`CV Ruben Alertas`** al registrar visitas calificadas (por tiempo o scroll), origen del visitante (LinkedIn, WhatsApp) y descargas del CV en PDF:
+
+<div align="center">
+  <img src="screenshots/06_telegram_alerts_realtime.png" alt="Captura Real de Alertas en Vivo vía Telegram Bot" width="340" style="border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.25);">
+  <p><em>Notificaciones operativas en tiempo real: detección de dispositivo, origen del tráfico y acciones de alta prioridad.</em></p>
+</div>
 
 ---
 
