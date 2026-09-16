@@ -145,6 +145,46 @@ Cuantificación en BigQuery de la dilución de métricas por ruido sintético: c
 
 ---
 
+### 9. Arquitectura de Datos & Pipeline Analítico End-to-End
+Diagrama ejecutivo del flujo de datos continuo desde la captura en cliente hasta la visualización en Business Intelligence:
+
+<div align="center">
+  <img src="screenshots/12_arquitectura_data_pipeline_end_to_end.png" alt="Arquitectura del Data Pipeline End-to-End" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+  <p><em>Flujo de 5 fases: Client DataLayer ➔ Google Tag Manager ➔ GA4 ➔ Google Cloud BigQuery ➔ Looker Studio (+ Telemetría reactiva vía Telegram Bot).</em></p>
+</div>
+
+---
+
+### 10. Plan de Medición Digital: Objetivos Estratégicos, Conversiones & KPIs
+Alineación del embudo de contratación y gobernanza de indicadores clave (Macro, Micro y Engagement):
+
+<div align="center">
+  <img src="screenshots/09_plan_medicion_objetivos_kpis.png" alt="Objetivos y KPIs del Plan de Medición" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+  <p><em>Hoja 2 del Tracking Plan Excel: Definición de metas para descargas ATS, contacto directo y ratios de lectura.</em></p>
+</div>
+
+---
+
+### 11. Plan de Medición Digital: Matriz Maestra de Eventos GA4 & GTM
+Especificación técnica de nombres de eventos, activadores (triggers) y variables del DataLayer:
+
+<div align="center">
+  <img src="screenshots/10_plan_medicion_matriz_eventos.png" alt="Matriz de Eventos GA4 y GTM" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+  <p><em>Hoja 3 del Tracking Plan Excel: 15 eventos normalizados bajo nomenclatura snake_case estricta y cumplimiento No PII.</em></p>
+</div>
+
+---
+
+### 12. Plan de Medición Digital: Especificación Técnica de DataLayer (Dev Spec)
+Contrato técnico para desarrollo frontend con funciones JavaScript wrappers y envío asíncrono no bloqueante:
+
+<div align="center">
+  <img src="screenshots/11_plan_medicion_dev_spec_datalayer.png" alt="Dev Spec DataLayer" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+  <p><em>Hoja 5 del Tracking Plan Excel: Snippets de integración y mejores prácticas de inyección antes de GTM.</em></p>
+</div>
+
+---
+
 ## 🏗️ Arquitectura Técnica: Separación de Capas (Data Layer vs. Presentation)
 
 Como prueba del criterio analítico y de ingeniería de software, los datos del dashboard no están rígidamente acoplados al documento HTML. Se implementó una **arquitectura desacoplada**:
