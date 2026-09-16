@@ -236,7 +236,7 @@ def build_pdf_es(filename="CV_Ruben_Barrios_Analista_De_Datos.pdf"):
         ("Análisis de Datos: Excel, Power BI, SQL y Python", "Datax"),
         ("Fundamentos de Inteligencia Artificial (Artificial Intelligence Fundamentals)", "IBM SkillsBuild"),
         ("Iniciación a la Programación con Python", "Talento Tech — Ministerio de Educación GCBA"),
-        ("IA Aplicada al Entorno Laboral: ChatGPT, Gemini, Copilot, Make", "IA Leaders")
+        ("IA Aplicada al Entorno Laboral: ChatGPT, Gemini, Copilot, Make", "Datax")
     ]
     for c_name, c_inst in certs:
         story.append(Paragraph(f"• <b>{c_name}</b> &nbsp;|&nbsp; <i>{c_inst}</i>", styles["Bullet"]))
@@ -356,7 +356,7 @@ def build_pdf_en(filename="CV_Ruben_Barrios_Data_Analyst.pdf"):
         ("Data Analysis: Excel, Power BI, SQL, and Python", "Datax"),
         ("Artificial Intelligence Fundamentals", "IBM SkillsBuild"),
         ("Introduction to Programming with Python", "Talento Tech — Ministry of Education, City of Buenos Aires (GCBA)"),
-        ("Applied AI in the Workplace: ChatGPT, Gemini, Copilot, Make", "IA Leaders")
+        ("Applied AI in the Workplace: ChatGPT, Gemini, Copilot, Make", "Datax")
     ]
     for c_name, c_inst in certs_en:
         story.append(Paragraph(f"• <b>{c_name}</b> &nbsp;|&nbsp; <i>{c_inst}</i>", styles["Bullet"]))

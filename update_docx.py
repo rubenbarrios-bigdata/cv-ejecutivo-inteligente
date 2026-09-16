@@ -158,7 +158,7 @@ paragraphs.append(make_p("• <b>Analítica Digital: Google Tag Manager, Google 
 paragraphs.append(make_p("• <b>Análisis de Datos: Excel, Power BI, SQL y Python</b> | Datax", size=18, bullet=True, space_after=15))
 paragraphs.append(make_p("• <b>Fundamentos de Inteligencia Artificial (Artificial Intelligence Fundamentals)</b> | IBM SkillsBuild", size=18, bullet=True, space_after=15))
 paragraphs.append(make_p("• <b>Iniciación a la Programación con Python</b> | Talento Tech — Ministerio de Educación GCBA", size=18, bullet=True, space_after=15))
-paragraphs.append(make_p("• <b>IA Aplicada al Entorno Laboral: ChatGPT, Gemini, Copilot, Make</b> | IA Leaders", size=18, bullet=True, space_after=30))
+paragraphs.append(make_p("• <b>IA Aplicada al Entorno Laboral: ChatGPT, Gemini, Copilot, Make</b> | Datax", size=18, bullet=True, space_after=30))
 
 # Sección de página
 sectPr = '<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="720" w:right="720" w:bottom="720" w:left="720" w:header="720" w:footer="720" w:gutter="0"/><w:cols w:space="720"/><w:docGrid w:linePitch="360"/></w:sectPr>'
