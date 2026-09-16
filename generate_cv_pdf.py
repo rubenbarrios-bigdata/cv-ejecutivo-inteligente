@@ -219,8 +219,8 @@ def build_pdf_es(filename="CV_Ruben_Barrios_Analista_De_Datos.pdf"):
     story.append(Paragraph("EDUCACIÓN", styles["SectionTitle"]))
     story.append(hr())
     edu = [
-        ("Tecnicatura Superior en Ciencia de Datos e Inteligencia Artificial", "En curso (Primer Año) — Instituto de Formación Técnica Superior | Buenos Aires, Argentina"),
-        ("Business Intelligence (BI Consulting)", "En curso (Ruta formativa oficial hacia Analista de Datos)"),
+        ("Tecnicatura Superior en Ciencia de Datos e Inteligencia Artificial", "En curso (Primer Año) — Instituto de Formación Técnica Superior | Ministerio de Educación GCBA"),
+        ("Business Intelligence (BI Consulting)", "En curso (Segundo cuatrimestre de cuatro, ruta formativa oficial hacia Análisis de Datos) — Talento Tech | Ministerio de Educación GCBA"),
         ("Power BI DevOps: PBIP, Git, CI/CD y Microsoft Fabric", "En curso — Udemy"),
         ("Licenciatura en Administración de Recursos Materiales y Financieros", "Universidad Nacional Experimental Simón Rodríguez | Caracas, Venezuela"),
         ("T.S.U. en Administración de Recursos Físicos y Financieros", "Colegio Universitario Fermín Toro | Caracas, Venezuela")
@@ -339,8 +339,8 @@ def build_pdf_en(filename="CV_Ruben_Barrios_Data_Analyst.pdf"):
     story.append(Paragraph("EDUCATION", styles["SectionTitle"]))
     story.append(hr())
     edu_en = [
-        ("Associate Degree in Data Science & Artificial Intelligence", "In Progress (1st Year) — Higher Technical Training Institute | Buenos Aires, Argentina"),
-        ("Business Intelligence (BI Consulting)", "In Progress (Official learning path toward Data Analyst)"),
+        ("Associate Degree in Data Science & Artificial Intelligence", "In Progress (1st Year) — Higher Technical Training Institute | Ministry of Education, City of Buenos Aires (GCBA)"),
+        ("Business Intelligence (BI Consulting)", "In Progress (2nd of 4 semesters, official learning path toward Data Analytics) — Talento Tech | Ministry of Education, City of Buenos Aires (GCBA)"),
         ("Power BI DevOps: PBIP, Git, CI/CD, and Microsoft Fabric", "In Progress — Udemy"),
         ("Bachelor's Degree (Lic.) in Material & Financial Resources Administration", "Simón Rodríguez National Experimental University | Caracas, Venezuela"),
         ("Associate Degree (T.S.U.) in Physical & Financial Resources Administration", "Fermín Toro University College | Caracas, Venezuela")
