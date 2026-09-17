@@ -96,10 +96,10 @@ paragraphs.append(make_p("LinkedIn: linkedin.com/in/ruben-barrios-1430712ab | Gi
 
 # Resumen Profesional
 paragraphs.append(make_heading("RESUMEN PROFESIONAL"))
-p1 = "<b>Analista de Datos</b> con experiencia demostrada en análisis de métricas de fraude, logística y e-commerce, y más de 15 años de sólida trayectoria previa en el sector bancario y financiero internacional. Especializado en transformar requerimientos de negocio en soluciones analíticas de alto impacto mediante el diseño de dashboards en <b>Power BI (DAX)</b>, consultas avanzadas en <b>SQL (MySQL, PostgreSQL)</b>, automatización con <b>Python (pandas)</b> y analítica digital de productos con <b>GTM, GA4, Supabase y Looker Studio</b>."
+p1 = "<b>Analista de Datos</b> con experiencia demostrada en análisis de métricas de fraude, logística y e-commerce, y más de 15 años de sólida trayectoria previa en el sector bancario y financiero internacional. Con enfoque resolutivo orientado a transformar requerimientos de negocio en soluciones analíticas de alto impacto mediante el diseño de dashboards en <b>Excel, Power BI y Data Studio</b>, consultas <b>SQL (MySQL, PostgreSQL)</b>, automatización con <b>Python (pandas)</b> y analítica digital de productos con <b>GTM, GA4, Supabase y Looker Studio</b>."
 paragraphs.append(make_p(p1, size=19, align="both", space_after=40))
 
-p2 = "Historial comprobado en optimización de indicadores de negocio, destacando la <b>reducción del 80% en el ratio histórico de siniestralidad por fraude (de 0,150% a 0,030%)</b> en operaciones de alto volumen mediante sistemas de monitoreo en tiempo real. Perfil analítico orientado a la toma de decisiones basada en evidencia, conciliaciones complejas y trabajo multidisciplinario con equipos de Producto, Backend y Operaciones."
+p2 = "Historial comprobado en optimización de indicadores de negocio, destacando la <b>reducción del 80% en el ratio histórico de siniestralidad por fraude (de 0,150% a 0,030%)</b> en operaciones de alto volumen mediante el monitoreo contínuo de métricas. Perfil analítico orientado a la toma de decisiones basada en evidencia, y trabajo multidisciplinario con equipos de Producto, Backend y Operaciones."
 paragraphs.append(make_p(p2, size=19, align="both", space_after=60))
 
 # Habilidades Técnicas
