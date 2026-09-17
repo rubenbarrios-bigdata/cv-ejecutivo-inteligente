@@ -97,7 +97,7 @@ paragraphs.append(make_p("LinkedIn: linkedin.com/in/ruben-barrios-1430712ab | Gi
 # Resumen Profesional
 paragraphs.append(make_heading("RESUMEN PROFESIONAL"))
 p1 = "<b>Analista de Datos</b> con experiencia comprobada en análisis de métricas de fraude en logística para e-commerce y distribución de última milla (Last-Mile Fulfillment), complementada por más de 15 años de sólida trayectoria en el sector bancario, negocios internacionales y finanzas corporativas. Hoy combino esa visión estratégica con un enfoque resolutivo orientado a transformar requerimientos de negocio en soluciones analíticas de alto impacto mediante el diseño de dashboards en <b>Excel y Power BI</b>, consultas <b>SQL (MySQL, PostgreSQL)</b>, automatización con <b>Python (pandas)</b> y analítica digital de productos con <b>GTM, GA4, BigQuery y Data Studio</b>."
-paragraphs.append(make_p(p1, size=19, align="both", space_after=40))
+paragraphs.append(make_p(p1, size=19, align="both", space_after=100))
 
 p2 = "Historial comprobado en optimización de indicadores de negocio, destacando la <b>reducción del 80% en el ratio histórico de siniestralidad por fraude (de 0,150% a 0,030%)</b> en operaciones de alto volumen mediante el monitoreo continuo de métricas. Perfil analítico orientado a la toma de decisiones basada en evidencia y trabajo multidisciplinario con equipos de Producto, Backend y Operaciones."
 paragraphs.append(make_p(p2, size=19, align="both", space_after=60))
