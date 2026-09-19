@@ -122,7 +122,7 @@ paragraphs.append(make_p("• <b>Visualización ejecutiva de producto:</b> Creac
 
 # Puesto 2: Webpack
 paragraphs.append(make_job_header("Webpack S.R.L — Logística Mercado Libre | Buenos Aires, Argentina", "Mar. 2020 – Oct. 2024"))
-paragraphs.append(make_p("Data Analyst — Prevención de Fraudes y Siniestros E-Commerce", bold=True, size=19, color="2B6CB0", space_after=30))
+paragraphs.append(make_p("Data Analyst | Fraud Prevention | E-commerce Logistics & Last-Mile Fulfillment", bold=True, size=19, color="2B6CB0", space_after=30))
 paragraphs.append(make_p("• <b>Logro Destacado de Negocio:</b> Reducción histórica del <b>80% en el ratio de siniestros por fraude (de 0,150% a 0,030%)</b>, posicionando a Webpack como la operación logística con el ratio más bajo y eficiente de toda la red de Mercado Libre.", size=18, bullet=True, color="1A365D", bold=True, space_after=25))
 paragraphs.append(make_p("• <b>Monitoreo y tableros de control en tiempo real:</b> Diseño, automatización y mantenimiento de dashboards interactivos en <b>Power BI (DAX)</b> y modelos en Excel avanzado para supervisión de siniestros y reclamos de alta volumetría.", size=18, bullet=True, space_after=20))
 paragraphs.append(make_p("• <b>Detección de patrones anómalos y análisis SQL:</b> Extracción y limpieza de datos operativos con consultas analíticas en SQL y reporting automatizado para identificar desvíos sistemáticos y mitigar pérdidas financieras.", size=18, bullet=True, space_after=20))
