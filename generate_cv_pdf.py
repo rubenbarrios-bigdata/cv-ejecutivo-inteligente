@@ -184,8 +184,8 @@ def build_pdf_es(filename="CV_Ruben_Barrios_Analista_De_Datos.pdf"):
     story.append(t_p2)
     story.append(Paragraph("Data Analyst | Fraud Prevention | E-commerce Logistics & Last-Mile Fulfillment", styles["JobRole"]))
     story.append(Paragraph("• <b>Logro Destacado de Negocio:</b> Reducción histórica del <b>80% en el ratio de siniestros por fraude (de 0,150% a 0,030%)</b>, posicionando a Webpack como la operación logística con el ratio más bajo y eficiente de toda la red de Mercado Libre.", styles["Achievement"]))
-    story.append(Paragraph("• <b>Monitoreo y tableros de control en tiempo real:</b> Diseño, automatización y mantenimiento de dashboards interactivos en <b>Power BI (DAX)</b> y modelos en Excel avanzado para supervisión de siniestros y reclamos de alta volumetría.", styles["Bullet"]))
     story.append(Paragraph("• <b>Detección de patrones anómalos y análisis SQL:</b> Extracción y limpieza de datos operativos con consultas analíticas en SQL y reporting automatizado para identificar desvíos sistemáticos y mitigar pérdidas financieras.", styles["Bullet"]))
+    story.append(Paragraph("• <b>Business Intelligence y tableros de control:</b> Diseño, automatización y mantenimiento de dashboards interactivos en <b>Power BI (DAX)</b> y modelos en Excel avanzado para la trazabilidad y análisis de reclamos y siniestros de alta volumetría.", styles["Bullet"]))
     story.append(Paragraph("• <b>Optimización de procesos operativos:</b> Articulación y coordinación con despachos, operaciones y seguridad patrimonial, estableciendo protocolos de alerta temprana basados en evidencia analítica.", styles["Bullet"]))
 
     story.append(PageBreak())
@@ -304,8 +304,8 @@ def build_pdf_en(filename="CV_Ruben_Barrios_Data_Analyst.pdf"):
     story.append(t_p2)
     story.append(Paragraph("Data Analyst | Fraud Prevention | E-commerce Logistics & Last-Mile Fulfillment", styles["JobRole"]))
     story.append(Paragraph("• <b>Key Business Impact:</b> Achieved a historic <b>80% reduction in the fraud loss ratio (from 0.150% to 0.030%)</b>, establishing Webpack as the benchmark logistics operator across Mercado Libre's entire network.", styles["Achievement"]))
-    story.append(Paragraph("• <b>Real-Time Monitoring Dashboards:</b> Designed, automated, and maintained interactive dashboards in <b>Power BI (DAX)</b> and advanced Excel models for continuous supervision of high-volume package incidents.", styles["Bullet"]))
     story.append(Paragraph("• <b>Anomaly Detection & SQL Analysis:</b> Queried, transformed, and cleaned operational transaction data using SQL and automated reporting to identify systemic fraud patterns and mitigate direct financial losses.", styles["Bullet"]))
+    story.append(Paragraph("• <b>Business Intelligence & Control Dashboards:</b> Designed, automated, and maintained interactive dashboards in <b>Power BI (DAX)</b> and advanced Excel models for end-to-end tracking and high-volume claims/incident analysis.", styles["Bullet"]))
     story.append(Paragraph("• <b>Operational Process Optimization:</b> Coordinated with dispatch, warehouse, and asset protection teams to establish early-warning response protocols driven by data evidence.", styles["Bullet"]))
 
     story.append(PageBreak())
