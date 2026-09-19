@@ -129,11 +129,11 @@ paragraphs.append(make_p("• <b>Business Intelligence y tableros de control:</b
 paragraphs.append(make_p("• <b>Optimización de procesos operativos:</b> Articulación y coordinación con despachos, operaciones y seguridad patrimonial, estableciendo protocolos de alerta temprana basados en evidencia analítica.", size=18, bullet=True, space_after=40))
 
 # Puesto 3: Sector Bancario
-paragraphs.append(make_job_header("Sector Bancario y Finanzas Internacionales | Caracas, Venezuela", "2002 – 2017"))
-paragraphs.append(make_p("Especialista de Comercio Exterior / Analista Financiero y Operaciones — BFC Banco Fondo Común, Banco Exterior, Banco Venezolano de Crédito", bold=True, size=19, color="2B6CB0", space_after=30))
-paragraphs.append(make_p("• <b>Gestión y análisis de operaciones financieras:</b> Más de 15 años administrando operaciones de comercio exterior, cartas de crédito, cobranzas documentarias y divisas con estricta trazabilidad de fondos.", size=18, bullet=True, space_after=20))
-paragraphs.append(make_p("• <b>Control analítico y conciliaciones contables:</b> Supervisión de auxiliares contables, conciliaciones bancarias complejas y auditoría de datos financieros bajo riguroso cumplimiento normativo y regulatorio.", size=18, bullet=True, space_after=20))
-paragraphs.append(make_p("• <b>Riesgo y optimización operativa:</b> Control de riesgos operacionales y cambiarios, elaboración de reportes cuantitativos para comités ejecutivos y auditoría interna.", size=18, bullet=True, space_after=60))
+paragraphs.append(make_job_header("Sector Bancario — Operaciones Internacionales & Finanzas Corporativas | Caracas, Venezuela", "2002 – 2017"))
+paragraphs.append(make_p("Especialista de Comercio Exterior (BFC Banco Fondo Común) | Analista de Operaciones Internacionales (Banco Exterior) | Analista de Compras & Representante de Ventas (Venezolano de Crédito S.A.)", bold=True, size=19, color="2B6CB0", space_after=30))
+paragraphs.append(make_p("• <b>Comercio Exterior y Operaciones Internacionales (BFC / Banco Exterior):</b> Gestión integral de importaciones, cartas de crédito comerciales, cobranzas documentarias, liquidación de divisas y estricta trazabilidad de fondos.", size=18, bullet=True, space_after=20))
+paragraphs.append(make_p("• <b>Control analítico, conciliaciones y auditoría:</b> Supervisión de auxiliares contables, conciliaciones bancarias y auditoría de datos financieros bajo riguroso cumplimiento normativo y regulatorio.", size=18, bullet=True, space_after=20))
+paragraphs.append(make_p("• <b>Compras, gestión comercial y caja (Venezolano de Crédito S.A.):</b> Manejo de presupuestos y adquisición de activos operativos para el funcionamiento del banco; operaciones de caja, fidelización y cumplimiento de metas comerciales.", size=18, bullet=True, space_after=60))
 
 # Proyectos
 paragraphs.append(make_heading("PROYECTOS DESTACADOS DE ANÁLISIS DE DATOS"))
