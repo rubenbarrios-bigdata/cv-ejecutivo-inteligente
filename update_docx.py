@@ -122,7 +122,7 @@ paragraphs.append(make_p(p2, size=19, align="both", space_after=60))
 
 # HABILIDADES TÉCNICAS Y COMPETENCIAS
 paragraphs.append(make_heading("HABILIDADES TÉCNICAS Y COMPETENCIAS"))
-paragraphs.append(make_p("• <b>Análisis de Datos y Business Intelligence:</b> Power BI (DAX avanzado, Power Query, modelado dimensional, PBIP), SQL (MySQL, PostgreSQL: queries complejas, subconsultas, agregaciones), Python (pandas, NumPy, Matplotlib, Colab, VSCode), Excel avanzado (tablas dinámicas).", size=19, bullet=True, space_after=20))
+paragraphs.append(make_p("• <b>Análisis de Datos y Business Intelligence:</b> Power BI (DAX avanzado, Power Query, modelado dimensional, PBIP), SQL (MySQL, PostgreSQL: queries complejas, subconsultas, agregaciones), Python (pandas, NumPy, Matplotlib, Colab, VSCode), Excel avanzado (tablas dinámicas, fórmulas avanzadas, dashboard ejecutivo).", size=19, bullet=True, space_after=20))
 paragraphs.append(make_p("• <b>Visualización y Analítica Digital:</b> Looker Studio, Google Analytics 4 (GA4), Google Tag Manager (GTM), Supabase, Firebase, BigQuery, diseño de KPIs ejecutivos, análisis de retención, engagement, funnel y conversión.", size=19, bullet=True, space_after=20))
 paragraphs.append(make_p("• <b>Estrategia de Negocio y Fraude:</b> Prevención de Fraudes, Detección de Anomalías en Logística/E-Commerce y Última Milla, Finanzas Corporativas, Comercio Exterior, Liquidación Cambiaria y Trazabilidad de Fondos.", size=19, bullet=True, space_after=20))
 paragraphs.append(make_p("• <b>Metodologías y Herramientas:</b> Git, GitHub, CI/CD para BI, Scrum/Ágil, IA Generativa aplicada a analítica de datos (ChatGPT, Copilot, Gemini, Claude, Make).", size=19, bullet=True, space_after=40))

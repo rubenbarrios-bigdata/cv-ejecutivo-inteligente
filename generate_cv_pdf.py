@@ -187,7 +187,7 @@ def build_pdf_es(filename="CV_Ruben_Barrios_Analista_De_Datos.pdf"):
     # HABILIDADES TÉCNICAS Y COMPETENCIAS
     story.append(Paragraph("HABILIDADES TÉCNICAS Y COMPETENCIAS", styles["SectionTitle"]))
     story.append(hr_section())
-    story.append(Paragraph("• <b>Análisis de Datos y Business Intelligence:</b> Power BI (DAX avanzado, Power Query, modelado dimensional, PBIP), SQL (MySQL, PostgreSQL: queries complejas, subconsultas, agregaciones), Python (pandas, NumPy, Matplotlib, Colab, VSCode), Excel avanzado (tablas dinámicas).", styles["Bullet"]))
+    story.append(Paragraph("• <b>Análisis de Datos y Business Intelligence:</b> Power BI (DAX avanzado, Power Query, modelado dimensional, PBIP), SQL (MySQL, PostgreSQL: queries complejas, subconsultas, agregaciones), Python (pandas, NumPy, Matplotlib, Colab, VSCode), Excel avanzado (tablas dinámicas, fórmulas avanzadas, dashboard ejecutivo).", styles["Bullet"]))
     story.append(Paragraph("• <b>Visualización y Analítica Digital:</b> Looker Studio, Google Analytics 4 (GA4), Google Tag Manager (GTM), Supabase, Firebase, BigQuery, diseño de KPIs ejecutivos, análisis de retención, engagement, funnel y conversión.", styles["Bullet"]))
     story.append(Paragraph("• <b>Estrategia de Negocio y Fraude:</b> Prevención de Fraudes, Detección de Anomalías en Logística/E-Commerce y Última Milla, Finanzas Corporativas, Comercio Exterior, Liquidación Cambiaria y Trazabilidad de Fondos.", styles["Bullet"]))
     story.append(Paragraph("• <b>Metodologías y Herramientas:</b> Git, GitHub, CI/CD para BI, Scrum/Ágil, IA Generativa aplicada a analítica de datos (ChatGPT, Copilot, Gemini, Claude, Make).", styles["Bullet"]))
@@ -327,7 +327,7 @@ def build_pdf_en(filename="CV_Ruben_Barrios_Data_Analyst.pdf"):
     # TECHNICAL SKILLS AND STRENGTHS
     story.append(Paragraph("TECHNICAL SKILLS AND STRENGTHS", styles["SectionTitle"]))
     story.append(hr_section())
-    story.append(Paragraph("• <b>Data Analytics & Business Intelligence:</b> Power BI (Advanced DAX, Power Query, dimensional modeling, PBIP), SQL (MySQL, PostgreSQL: complex queries, subqueries, aggregations), Python (pandas, NumPy, Matplotlib, Colab, VSCode), Advanced Excel (pivot tables).", styles["Bullet"]))
+    story.append(Paragraph("• <b>Data Analytics & Business Intelligence:</b> Power BI (Advanced DAX, Power Query, dimensional modeling, PBIP), SQL (MySQL, PostgreSQL: complex queries, subqueries, aggregations), Python (pandas, NumPy, Matplotlib, Colab, VSCode), Advanced Excel (pivot tables, advanced formulas, executive dashboard).", styles["Bullet"]))
     story.append(Paragraph("• <b>Digital Analytics & Product Visualization:</b> Looker Studio, Google Analytics 4 (GA4), Google Tag Manager (GTM), Supabase, Firebase, BigQuery, executive KPI design, user retention, engagement, funnel and conversion tracking.", styles["Bullet"]))
     story.append(Paragraph("• <b>Business Strategy & Fraud Prevention:</b> Fraud Prevention, Anomaly Detection in Logistics/E-Commerce & Last-Mile, Corporate Finance, International Trade, Foreign Exchange Settlement & Funds Traceability.", styles["Bullet"]))
     story.append(Paragraph("• <b>Tools & Methodologies:</b> Git, GitHub, CI/CD for BI, Agile/Scrum, Generative AI applied to analytical workflows (ChatGPT, Copilot, Gemini, Claude, Make).", styles["Bullet"]))
