@@ -3175,7 +3175,7 @@
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro" aria-label="Cambiar a Modo Claro">
             <i class="fas fa-sun" id="themeIcon"></i>
         </button>
-        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf?v=2.2" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" onclick="if(typeof trackDocumentDownload==='function') trackDocumentDownload('pdf', 'CV_Ruben_Barrios_Analista_De_Datos.pdf');" title="Descargar CV en PDF" aria-label="Descargar CV en PDF">
+        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.0" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" onclick="if(typeof trackDocumentDownload==='function') trackDocumentDownload('pdf', 'CV_Ruben_Barrios_Analista_De_Datos.pdf');" title="Descargar CV en PDF" aria-label="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
         </a>
     </div>
@@ -3688,10 +3688,6 @@
                         <div class="lang-row">
                             <span class="lang-name" id="langEsName">Español</span>
                             <span class="lang-badge" id="langEsBadge">Nativo / C2</span>
-                        </div>
-                        <div class="lang-row">
-                            <span class="lang-name" id="langEnName">Inglés</span>
-                            <span class="lang-badge" id="langEnBadge">Técnico / Básico A2</span>
                         </div>
                     </div>
                 </div>
@@ -4976,7 +4972,7 @@ function renderProjects(lang = 'es') {
                 themeDarkMob: 'Oscuro',
                 themeLightDesk: 'Claro',
                 themeLightMob: 'Claro',
-                pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf?v=2.2',
+                pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.0',
                 pdfDownload: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
                 pdfTitle: 'Descargar CV en PDF',
                 pdfTextDesk: 'PDF',
@@ -5078,9 +5074,8 @@ function renderProjects(lang = 'es') {
                 eduDate5: '2002 - 2005',
                 eduStatus5: 'Graduado',
                 langTitle: '<i class="fas fa-language"></i>Idiomas',
+                langEsName: 'Español',
                 langEsBadge: 'Nativo / C2',
-                langEnName: 'Inglés',
-                langEnBadge: 'Técnico / Lectura y Documentación',
                 refTitle: '<i class="fas fa-user-check"></i>Referencias',
                 refRole: 'IT Project Management',
                 footerCopy: 'CV Ejecutivo Inteligente • Rubén David Barrios Bello • Marca Registrada ® • Actualizado 2026',
@@ -5103,7 +5098,7 @@ function renderProjects(lang = 'es') {
                 themeDarkMob: 'Dark',
                 themeLightDesk: 'Light',
                 themeLightMob: 'Light',
-                pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf?v=2.2',
+                pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf?v=3.0',
                 pdfDownload: 'CV_Ruben_Barrios_Data_Analyst.pdf',
                 pdfTitle: 'Download Resume in PDF',
                 pdfTextDesk: 'PDF',
@@ -5229,9 +5224,8 @@ function renderProjects(lang = 'es') {
                 eduDate5: '2002 - 2005',
                 eduStatus5: 'Graduated',
                 langTitle: '<i class="fas fa-language"></i>Languages',
+                langEsName: 'Spanish',
                 langEsBadge: 'Native / C2',
-                langEnName: 'English',
-                langEnBadge: 'Technical / Reading & Documentation',
                 refTitle: '<i class="fas fa-user-check"></i>References',
                 refRole: 'IT Project Management',
                 footerCopy: 'CV Ejecutivo Inteligente • Rubén David Barrios Bello • Registered Trademark ® • Updated 2026',
@@ -5512,14 +5506,11 @@ function renderProjects(lang = 'es') {
             const langTitle = document.getElementById('langTitle');
             if (langTitle) langTitle.innerHTML = t.langTitle;
 
+            const langEsName = document.getElementById('langEsName');
+            if (langEsName && t.langEsName) langEsName.innerText = t.langEsName;
+
             const langEsBadge = document.getElementById('langEsBadge');
             if (langEsBadge) langEsBadge.innerText = t.langEsBadge;
-
-            const langEnName = document.getElementById('langEnName');
-            if (langEnName) langEnName.innerText = t.langEnName;
-
-            const langEnBadge = document.getElementById('langEnBadge');
-            if (langEnBadge) langEnBadge.innerText = t.langEnBadge;
 
             // Referencias
             const refTitle = document.getElementById('refTitle');

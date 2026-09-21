@@ -122,7 +122,7 @@ paragraphs.append(make_p(p2, size=19, align="both", space_after=60))
 
 # HABILIDADES TÉCNICAS Y COMPETENCIAS
 paragraphs.append(make_heading("HABILIDADES TÉCNICAS Y COMPETENCIAS"))
-paragraphs.append(make_p("• <b>Análisis de Datos y Business Intelligence:</b> Power BI (DAX avanzado, Power Query, modelado dimensional, PBIP), SQL (MySQL, PostgreSQL: queries complejas, subconsultas, agregaciones), Python (pandas, NumPy, Matplotlib, Colab, VSCode), Excel avanzado (tablas dinámicas, fórmulas matriciales).", size=19, bullet=True, space_after=20))
+paragraphs.append(make_p("• <b>Análisis de Datos y Business Intelligence:</b> Power BI (DAX avanzado, Power Query, modelado dimensional, PBIP), SQL (MySQL, PostgreSQL: queries complejas, subconsultas, agregaciones), Python (pandas, NumPy, Matplotlib, Colab, VSCode), Excel avanzado (tablas dinámicas).", size=19, bullet=True, space_after=20))
 paragraphs.append(make_p("• <b>Visualización y Analítica Digital:</b> Looker Studio, Google Analytics 4 (GA4), Google Tag Manager (GTM), Supabase, Firebase, BigQuery, diseño de KPIs ejecutivos, análisis de retención, engagement, funnel y conversión.", size=19, bullet=True, space_after=20))
 paragraphs.append(make_p("• <b>Estrategia de Negocio y Fraude:</b> Prevención de Fraudes, Detección de Anomalías en Logística/E-Commerce y Última Milla, Finanzas Corporativas, Comercio Exterior, Liquidación Cambiaria y Trazabilidad de Fondos.", size=19, bullet=True, space_after=20))
 paragraphs.append(make_p("• <b>Metodologías y Herramientas:</b> Git, GitHub, CI/CD para BI, Scrum/Ágil, IA Generativa aplicada a analítica de datos (ChatGPT, Copilot, Gemini, Claude, Make).", size=19, bullet=True, space_after=40))
@@ -168,7 +168,7 @@ paragraphs.append(make_p("• <b>Licenciatura en Administración de Recursos Mat
 paragraphs.append(make_p("• <b>T.S.U. en Administración de Recursos Físicos y Financieros</b> — Colegio Universitario Fermín Toro | Caracas, Venezuela", size=18, bullet=True, space_after=50))
 
 # Certificados Extracurriculares
-paragraphs.append(make_heading("CERTIFICACIONES"))
+paragraphs.append(make_heading("CERTIFICADOS"))
 paragraphs.append(make_p("• <b>Analítica Digital: Google Tag Manager, Google Analytics 4 y Data Studio</b> | Analytics Way", size=18, bullet=True, space_after=15))
 paragraphs.append(make_p("• <b>Análisis de Datos: Excel, Power BI, SQL y Python</b> | Datax", size=18, bullet=True, space_after=15))
 paragraphs.append(make_p("• <b>Fundamentos de Inteligencia Artificial (Artificial Intelligence Fundamentals)</b> | IBM SkillsBuild", size=18, bullet=True, space_after=15))
@@ -177,11 +177,7 @@ paragraphs.append(make_p("• <b>IA Aplicada al Entorno Laboral: ChatGPT, Gemini
 
 # Idiomas (Sección independiente según CV_ATS.jpeg)
 paragraphs.append(make_heading("IDIOMAS"))
-paragraphs.append(make_p("• <b>Español:</b> Nativo | <b>Inglés:</b> Técnico / Lectura y comprensión profesional de documentación y datos.", size=18, bullet=True, space_after=35))
-
-# Referencias (Sección independiente según CV_ATS.jpeg)
-paragraphs.append(make_heading("REFERENCIAS"))
-paragraphs.append(make_p("Referencias laborales y académicas comprobables disponibles a solicitud.", size=18, space_after=30))
+paragraphs.append(make_p("• <b>Español:</b> Nativo", size=18, bullet=True, space_after=35))
 
 # Sección de página
 sectPr = '<w:sectPr><w:pgSz w:w="12240" w:h="15840"/><w:pgMar w:top="720" w:right="720" w:bottom="720" w:left="720" w:header="720" w:footer="720" w:gutter="0"/><w:cols w:space="720"/><w:docGrid w:linePitch="360"/></w:sectPr>'
