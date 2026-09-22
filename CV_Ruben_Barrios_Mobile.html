@@ -665,19 +665,19 @@
         .stats-banner {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 25px;
+            gap: 12px;
+            margin-bottom: 22px;
         }
 
         .stat-card {
             background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
             border: 1px solid rgba(226, 232, 240, 0.95);
             border-radius: var(--radius-md);
-            padding: 18px 20px;
+            padding: 13px 18px;
             box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.03), inset 0 1px 0 0 rgba(255, 255, 255, 1);
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
             transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             color: inherit;
@@ -2481,11 +2481,11 @@
             }
         }
 
-        /* Barra Flotante Inferior de Contacto Rápido (Desktop y Mobile) */
+        /* Barra Flotante Inferior de Contacto Rápido (Desktop: diseño fino, estilizado y compacto) */
         .mobile-quick-dock {
             display: flex !important;
             position: fixed !important;
-            bottom: 18px !important;
+            bottom: 6px !important;
             left: 50% !important;
             transform: translateX(-50%) translateZ(0) !important;
             -webkit-transform: translateX(-50%) translateZ(0) !important;
@@ -2497,14 +2497,20 @@
             backdrop-filter: blur(16px) !important;
             -webkit-backdrop-filter: blur(16px) !important;
             border: 1px solid var(--border) !important;
-            border-radius: 40px !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+            border-radius: 24px !important;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22) !important;
             z-index: 1000 !important;
-            padding: 8px 22px !important;
-            gap: 16px !important;
+            padding: 2.5px 12px !important;
+            gap: 8px !important;
             align-items: center !important;
             box-sizing: border-box !important;
-            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+            transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease !important;
+            opacity: 0.94 !important;
+        }
+
+        .mobile-quick-dock:hover {
+            opacity: 1 !important;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3) !important;
         }
 
         .dock-item,
@@ -2513,19 +2519,20 @@
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
-            gap: 3px !important;
+            gap: 1.5px !important;
             color: var(--text-secondary) !important;
             text-decoration: none !important;
-            font-size: 0.68rem !important;
+            font-size: 0.56rem !important;
             font-weight: 600 !important;
-            padding: 4px 10px !important;
+            padding: 2px 5px !important;
             border-radius: var(--radius-sm) !important;
             transition: color 0.2s ease !important;
             transform: none !important;
+            line-height: 1.05 !important;
         }
 
         .dock-item i {
-            font-size: 1.15rem !important;
+            font-size: 0.76rem !important;
         }
 
         .dock-item:hover,
@@ -2574,6 +2581,7 @@
                 padding: 5px 4px calc(5px + env(safe-area-inset-bottom, 0px)) !important;
                 justify-content: space-around !important;
                 gap: 0 !important;
+                opacity: 1 !important;
             }
             .dock-item,
             a.dock-item,
