@@ -2983,51 +2983,57 @@
             }
 
             .exp-location {
-                font-size: 0.58rem !important;
-                margin-bottom: 4px !important;
-                gap: 2.5px !important;
+                font-size: 0.72rem !important;
+                margin-bottom: 6px !important;
+                gap: 4px !important;
+                color: var(--text-muted) !important;
             }
 
             .exp-location i {
-                font-size: 0.58rem !important;
+                font-size: 0.68rem !important;
                 margin-right: 2px !important;
             }
 
             /* ========================================================
-               JERARQUÍA Y CONTENIDO UNIFICADO (ESTILO MATE-MÁTICO)
+               JERARQUÍA Y CONTENIDO UNIFICADO (OPTIMIZACIÓN MÓVIL)
                ======================================================== */
             
-            /* Títulos de sección: Más grandes y jerarquizados */
+            /* Títulos de sección: Jerarquía clara y destacados */
             .section-title {
-                font-size: 0.88rem !important;
+                font-size: 1.05rem !important;
                 font-weight: 800 !important;
-                margin-bottom: 9px !important;
-                gap: 6px !important;
+                margin-bottom: 11px !important;
+                gap: 7px !important;
                 letter-spacing: -0.2px !important;
             }
 
             .section-title i {
-                font-size: 0.82rem !important;
+                font-size: 0.95rem !important;
             }
 
             .card {
-                padding: 12px 13px !important;
+                padding: 13px 13px !important;
                 margin-bottom: 12px !important;
                 border-radius: 11px !important;
             }
 
-            /* Puesto / Cargo: Más grande, negrita destacada y color blanco/principal */
+            /* Puesto / Cargo: Más grande que el contenido para diferenciarse claramente */
             .exp-role {
-                font-size: 0.85rem !important;
+                font-size: 0.96rem !important;
                 font-weight: 800 !important;
                 color: #ffffff !important;
-                line-height: 1.25 !important;
+                line-height: 1.30 !important;
                 letter-spacing: -0.1px !important;
+                margin-bottom: 3px !important;
+            }
+
+            [data-theme="light"] .exp-role {
+                color: var(--primary) !important;
             }
 
             /* Empresa: Diferenciada, tamaño intermedio y color cian acento */
             .exp-company {
-                font-size: 0.74rem !important;
+                font-size: 0.80rem !important;
                 font-weight: 600 !important;
                 color: #38bdf8 !important;
                 margin-bottom: 3px !important;
@@ -3036,17 +3042,21 @@
                 gap: 4px !important;
             }
 
+            [data-theme="light"] .exp-company {
+                color: var(--accent) !important;
+            }
+
             .exp-company i {
-                font-size: 0.70rem !important;
+                font-size: 0.74rem !important;
             }
 
+            .exp-date,
             .exp-period {
-                font-size: 0.62rem !important;
-                padding: 1.5px 6px !important;
+                font-size: 0.68rem !important;
+                padding: 2px 8px !important;
             }
 
-            /* Letras del contenido: TODAS unificadas al estándar Mate-Mático (0.72rem / line-height 1.42) */
-            /* Contenido de Perfil Profesional: ampliado para lectura óptima */
+            /* Contenido de Perfil Profesional: lectura óptima */
             .summary-text,
             .summary-text p {
                 font-size: 0.82rem !important;
@@ -3055,34 +3065,87 @@
                 text-align: justify !important;
             }
 
-            /* Resto de contenidos unificados al estándar Mate-Mático (0.72rem / line-height 1.42) */
+            /* Contenido de roles y responsabilidades en Experiencia Laboral: EXACTAMENTE al mismo tamaño que Perfil Profesional (0.82rem) */
+            .exp-description,
+            .exp-description ul,
+            .exp-description li,
+            .exp-description p,
+            .exp-responsibilities,
+            .exp-responsibilities ul,
             .exp-responsibilities li,
             .exp-desc,
-            .experience-item p,
-            .achievement-highlight,
-            .achievement-highlight strong,
-            .project-desc,
-            .project-impact {
-                font-size: 0.72rem !important;
-                line-height: 1.42 !important;
+            .exp-desc li,
+            .experience-item p {
+                font-size: 0.82rem !important;
+                line-height: 1.50 !important;
+                color: var(--text-secondary) !important;
             }
 
-            .exp-responsibilities,
+            .exp-description ul,
             .exp-responsibilities ul {
                 margin-top: 5px !important;
-                padding-left: 14px !important;
+                padding-left: 0 !important;
             }
 
+            .exp-description li,
             .exp-responsibilities li {
-                color: #94a3b8 !important;
-                margin-bottom: 3px !important;
+                position: relative !important;
+                padding-left: 16px !important;
+                margin-bottom: 6px !important;
+                line-height: 1.50 !important;
             }
 
+            .exp-description strong,
+            .exp-responsibilities strong {
+                color: var(--text) !important;
+                font-weight: 700 !important;
+            }
+
+            /* Logro Destacado de Negocio: más grande y destacado */
             .achievement-highlight {
-                padding: 7px 11px !important;
-                margin-top: 7px !important;
-                border-radius: 6px !important;
+                padding: 10px 13px !important;
+                margin-top: 8px !important;
+                margin-bottom: 10px !important;
+                border-radius: 8px !important;
+                font-size: 0.86rem !important;
+                line-height: 1.48 !important;
                 color: #e2e8f0 !important;
+                background: var(--accent-subtle) !important;
+                border-left: 4px solid var(--accent) !important;
+            }
+
+            [data-theme="light"] .achievement-highlight {
+                color: var(--text) !important;
+            }
+
+            .achievement-highlight strong {
+                font-size: 0.88rem !important;
+                font-weight: 700 !important;
+                color: #38bdf8 !important;
+            }
+
+            [data-theme="light"] .achievement-highlight strong {
+                color: var(--accent) !important;
+            }
+
+            .achievement-highlight i.fa-trophy {
+                font-size: 0.90rem !important;
+                margin-right: 4px !important;
+            }
+
+            .achievement-kpi-link {
+                margin-top: 7px !important;
+            }
+
+            .kpi-badge-link {
+                font-size: 0.74rem !important;
+                padding: 3px 8px !important;
+            }
+
+            .project-desc,
+            .project-impact {
+                font-size: 0.80rem !important;
+                line-height: 1.45 !important;
             }
 
             /* Tarjetas de Proyectos */
@@ -3177,7 +3240,7 @@
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro" aria-label="Cambiar a Modo Claro">
             <i class="fas fa-sun" id="themeIcon"></i>
         </button>
-        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.3" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" onclick="if(typeof trackDocumentDownload==='function') trackDocumentDownload('pdf', 'CV_Ruben_Barrios_Analista_De_Datos.pdf');" title="Descargar CV en PDF" aria-label="Descargar CV en PDF">
+        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.4" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" onclick="if(typeof trackDocumentDownload==='function') trackDocumentDownload('pdf', 'CV_Ruben_Barrios_Analista_De_Datos.pdf');" title="Descargar CV en PDF" aria-label="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
         </a>
     </div>
@@ -4996,7 +5059,7 @@ function renderProjects(lang = 'es') {
                 themeDarkMob: 'Oscuro',
                 themeLightDesk: 'Claro',
                 themeLightMob: 'Claro',
-                pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.3',
+                pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.4',
                 pdfDownload: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
                 pdfTitle: 'Descargar CV en PDF',
                 pdfTextDesk: 'PDF',
@@ -5122,7 +5185,7 @@ function renderProjects(lang = 'es') {
                 themeDarkMob: 'Dark',
                 themeLightDesk: 'Light',
                 themeLightMob: 'Light',
-                pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf?v=3.3',
+                pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf?v=3.4',
                 pdfDownload: 'CV_Ruben_Barrios_Data_Analyst.pdf',
                 pdfTitle: 'Download Resume in PDF',
                 pdfTextDesk: 'PDF',

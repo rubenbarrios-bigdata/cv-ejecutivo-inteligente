@@ -215,7 +215,7 @@ def build_pdf_es(filename="CV_Ruben_Barrios_Analista_De_Datos.pdf"):
     story.append(make_job_header(
         "Webpack S.R.L. — Operador Logístico Oficial de Mercado Libre",
         "Buenos Aires, Argentina",
-        "Data Analyst | Fraud Prevention | E-commerce Logistics & Last-Mile",
+        "Data Analyst | Fraud Prevention | E-commerce Logistics & Last-Mile Fulfillment",
         "Mar. 2020 – Oct. 2024",
         usable_width, styles
     ))
@@ -355,7 +355,7 @@ def build_pdf_en(filename="CV_Ruben_Barrios_Data_Analyst.pdf"):
     story.append(make_job_header(
         "Webpack S.R.L. — Official Mercado Libre Logistics Operator",
         "Buenos Aires, Argentina",
-        "Data Analyst | Fraud Prevention | E-commerce Logistics & Last-Mile",
+        "Data Analyst | Fraud Prevention | E-commerce Logistics & Last-Mile Fulfillment",
         "Mar. 2020 – Oct. 2024",
         usable_width, styles
     ))
