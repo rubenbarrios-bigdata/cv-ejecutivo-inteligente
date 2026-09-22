@@ -2481,7 +2481,7 @@
             }
         }
 
-        /* Barra Flotante Inferior de Contacto Rápido (Desktop: diseño fino, estilizado con bordes distintivos) */
+        /* Barra Flotante Inferior de Contacto Rápido (Desktop: diseño fino con borde distintivo) */
         .mobile-quick-dock {
             display: flex !important;
             position: fixed !important;
@@ -2501,7 +2501,7 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 12px rgba(56, 189, 248, 0.16) !important;
             z-index: 1000 !important;
             padding: 4px 14px !important;
-            gap: 8px !important;
+            gap: 12px !important;
             align-items: center !important;
             box-sizing: border-box !important;
             transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease !important;
@@ -2530,20 +2530,11 @@
             text-decoration: none !important;
             font-size: 0.62rem !important;
             font-weight: 600 !important;
-            padding: 3px 8px !important;
-            border-radius: 8px !important;
-            border: 1px solid rgba(255, 255, 255, 0.10) !important;
-            background: rgba(255, 255, 255, 0.04) !important;
-            transition: all 0.2s ease !important;
+            padding: 3px 6px !important;
+            border-radius: var(--radius-sm) !important;
+            transition: color 0.2s ease !important;
             transform: none !important;
             line-height: 1.1 !important;
-        }
-
-        [data-theme="light"] .dock-item,
-        [data-theme="light"] a.dock-item,
-        [data-theme="light"] a.dock-item:visited {
-            border: 1px solid rgba(0, 0, 0, 0.09) !important;
-            background: rgba(0, 0, 0, 0.03) !important;
         }
 
         .dock-item i {
@@ -2554,36 +2545,20 @@
         .dock-item:active,
         a.dock-item:hover,
         a.dock-item:active {
-            color: #ffffff !important;
-            border-color: rgba(56, 189, 248, 0.5) !important;
-            background: rgba(56, 189, 248, 0.14) !important;
-            transform: translateY(-1px) !important;
-        }
-
-        [data-theme="light"] .dock-item:hover,
-        [data-theme="light"] .dock-item:active,
-        [data-theme="light"] a.dock-item:hover,
-        [data-theme="light"] a.dock-item:active {
-            color: var(--primary) !important;
-            border-color: rgba(37, 99, 235, 0.45) !important;
-            background: rgba(37, 99, 235, 0.08) !important;
+            color: var(--accent) !important;
+            transform: none !important;
         }
 
         .dock-whatsapp,
         a.dock-whatsapp,
         a.dock-whatsapp:visited {
             color: #25D366 !important;
-            border-color: rgba(37, 211, 102, 0.3) !important;
-            background: rgba(37, 211, 102, 0.07) !important;
         }
         .dock-whatsapp:hover,
         .dock-whatsapp:active,
         a.dock-whatsapp:hover,
         a.dock-whatsapp:active {
-            color: #25D366 !important;
-            border-color: #25D366 !important;
-            background: rgba(37, 211, 102, 0.18) !important;
-            transform: translateY(-1px) !important;
+            color: #128C7E !important;
         }
 
         .dock-app,
@@ -2591,8 +2566,6 @@
         a.dock-app:visited {
             color: var(--accent) !important;
             font-weight: 700 !important;
-            border-color: rgba(56, 189, 248, 0.3) !important;
-            background: rgba(56, 189, 248, 0.06) !important;
         }
 
         @media (max-width: 768px) {
@@ -2619,8 +2592,6 @@
             .dock-item,
             a.dock-item,
             a.dock-item:visited {
-                border: none !important;
-                background: transparent !important;
                 font-size: 0.60rem !important;
                 padding: 3px 2px !important;
                 gap: 2px !important;
