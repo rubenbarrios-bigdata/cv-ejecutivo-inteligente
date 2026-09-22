@@ -3277,12 +3277,12 @@
 
         <!-- Métricas & Logros Clave -->
         <div class="stats-banner" id="statsBanner">
-            <a href="#exp-fraude" class="stat-card" id="kpi-fraude" onclick="handleKpiClick('kpi-fraude', '+4 Años', 'Analizando Métricas', 'exp-fraude'); scrollToTarget('exp-fraude'); return false;" title="Ver experiencia en Prevención de Fraudes">
+            <a href="#exp-fraude" class="stat-card" id="kpi-fraude" onclick="handleKpiClick('kpi-fraude', '+4 Años', 'Analista de Datos', 'exp-fraude'); scrollToTarget('exp-fraude'); return false;" title="Ver experiencia en Prevención de Fraudes">
                 <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 <div class="stat-icon"><i class="fas fa-chart-column"></i></div>
                 <div class="stat-content">
                     <div class="stat-number">+4 Años</div>
-                    <div class="stat-label">Analizando Métricas</div>
+                    <div class="stat-label">Analista de Datos</div>
                 </div>
             </a>
             <a href="#logro-fraude" class="stat-card" id="kpi-ratio" onclick="handleKpiClick('kpi-ratio', '0,150 ➔ 0,030', 'Ratio Fraude (-80%)', 'logro-fraude'); scrollToTarget('logro-fraude'); return false;" title="Ver logro en reducción de ratio de fraude">
@@ -4266,7 +4266,7 @@ function initTelemetryListeners() {
         // INLINE DATA: Soporte Autocontenido para WhatsApp / Local file:///
         // ==========================================
         const INLINE_KPIS_ES = [
-            { id: "kpi-fraude", number: "+4 Años", label: "Analizando Métricas", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "Ver experiencia en Prevención de Fraudes", category: "Experiencia Especializada", impact: "Monitoreo continuo de transacciones, detección temprana de patrones anómalos y mitigación de contracargos en operaciones de alto volumen." },
+            { id: "kpi-fraude", number: "+4 Años", label: "Analista de Datos", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "Ver experiencia en Prevención de Fraudes", category: "Experiencia Especializada", impact: "Monitoreo continuo de transacciones, detección temprana de patrones anómalos y mitigación de contracargos en operaciones de alto volumen." },
             { id: "kpi-ratio", number: "0,150 ➔ 0,030", label: "Ratio Fraude (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "Ver logro en reducción de ratio de fraude", category: "Impacto de Negocio", impact: "Optimización de reglas y scoring de riesgo reduciendo drásticamente las pérdidas económicas directas y falsos positivos." },
             { id: "kpi-bancaria", number: "+15 Años", label: "Sector Bancario", icon: "fas fa-university", target: "exp-bancaria", tooltip: "Ver experiencia en sector bancario", category: "Trayectoria Financiera", impact: "Sólida comprensión del negocio financiero, comercio exterior, normativas cambiarias, conciliaciones y trazabilidad de fondos." },
             { id: "kpi-proyectos", number: "9 Proyectos", label: "Análisis de Datos", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "Ver proyectos de Análisis de Datos", category: "Proyectos & Portafolio", impact: "Desarrollo de soluciones analíticas y dashboards interactivos en Power BI, Excel avanzado, SQL, Python, GTM, GA4 y Data Studio." },
@@ -4275,7 +4275,7 @@ function initTelemetryListeners() {
         ];
 
         const INLINE_KPIS_EN = [
-            { id: "kpi-fraude", number: "+4 Years", label: "Fraud Metrics Analysis", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "View Fraud Prevention experience", category: "Specialized Experience", impact: "Continuous transaction monitoring, early anomaly detection, and chargeback mitigation in high-volume operations." },
+            { id: "kpi-fraude", number: "+4 Years", label: "Data Analyst", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "View Fraud Prevention experience", category: "Specialized Experience", impact: "Continuous transaction monitoring, early anomaly detection, and chargeback mitigation in high-volume operations." },
             { id: "kpi-ratio", number: "0.150 ➔ 0.030", label: "Fraud Ratio (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "View fraud ratio reduction achievement", category: "Business Impact", impact: "Risk rules and scoring optimization drastically reducing direct financial losses and false positives." },
             { id: "kpi-bancaria", number: "+15 Years", label: "Banking Sector", icon: "fas fa-university", target: "exp-bancaria", tooltip: "View banking sector experience", category: "Financial Career", impact: "Strong understanding of financial business, foreign trade, exchange regulations, reconciliations, and fund traceability." },
             { id: "kpi-proyectos", number: "9 Projects", label: "Data Analytics", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "View Data Analytics projects", category: "Projects & Portfolio", impact: "Development of analytical solutions and interactive dashboards in Power BI, advanced Excel, SQL, Python, GTM, GA4, and Looker Studio." },
@@ -5012,7 +5012,7 @@ function renderProjects(lang = 'es') {
         // Navegación suave con realce visual a las secciones desde los KPIs
         function scrollToTarget(id) {
             const kpiTargetMap = {
-                'exp-fraude': { id: 'kpi-fraude', num: '+4 Años', label: 'Analizando Métricas' },
+                'exp-fraude': { id: 'kpi-fraude', num: '+4 Años', label: 'Analista de Datos' },
                 'logro-fraude': { id: 'kpi-ratio', num: '0,150 ➔ 0,030', label: 'Ratio Fraude (-80%)' },
                 'exp-bancaria': { id: 'kpi-bancaria', num: '+15 Años', label: 'Sector Bancario' },
                 'proyectosSection': { id: 'kpi-proyectos', num: '9 Proyectos', label: 'Análisis de Datos' },
