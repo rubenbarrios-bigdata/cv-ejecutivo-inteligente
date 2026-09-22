@@ -2481,11 +2481,11 @@
             }
         }
 
-        /* Barra Flotante Inferior de Contacto Rápido (Desktop: diseño fino, estilizado y compacto) */
+        /* Barra Flotante Inferior de Contacto Rápido (Desktop: diseño fino, estilizado con bordes distintivos) */
         .mobile-quick-dock {
             display: flex !important;
             position: fixed !important;
-            bottom: 6px !important;
+            bottom: 8px !important;
             left: 50% !important;
             transform: translateX(-50%) translateZ(0) !important;
             -webkit-transform: translateX(-50%) translateZ(0) !important;
@@ -2496,21 +2496,27 @@
             background: var(--card-bg) !important;
             backdrop-filter: blur(16px) !important;
             -webkit-backdrop-filter: blur(16px) !important;
-            border: 1px solid var(--border) !important;
-            border-radius: 24px !important;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22) !important;
+            border: 1.5px solid rgba(56, 189, 248, 0.38) !important;
+            border-radius: 26px !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 12px rgba(56, 189, 248, 0.16) !important;
             z-index: 1000 !important;
-            padding: 2.5px 12px !important;
+            padding: 4px 14px !important;
             gap: 8px !important;
             align-items: center !important;
             box-sizing: border-box !important;
             transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease !important;
-            opacity: 0.94 !important;
+            opacity: 0.96 !important;
+        }
+
+        [data-theme="light"] .mobile-quick-dock {
+            border: 1.5px solid rgba(37, 99, 235, 0.32) !important;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12), 0 0 10px rgba(37, 99, 235, 0.12) !important;
         }
 
         .mobile-quick-dock:hover {
             opacity: 1 !important;
-            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.3) !important;
+            border-color: var(--accent) !important;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4), 0 0 16px rgba(56, 189, 248, 0.25) !important;
         }
 
         .dock-item,
@@ -2519,40 +2525,65 @@
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
-            gap: 1.5px !important;
+            gap: 2px !important;
             color: var(--text-secondary) !important;
             text-decoration: none !important;
-            font-size: 0.56rem !important;
+            font-size: 0.62rem !important;
             font-weight: 600 !important;
-            padding: 2px 5px !important;
-            border-radius: var(--radius-sm) !important;
-            transition: color 0.2s ease !important;
+            padding: 3px 8px !important;
+            border-radius: 8px !important;
+            border: 1px solid rgba(255, 255, 255, 0.10) !important;
+            background: rgba(255, 255, 255, 0.04) !important;
+            transition: all 0.2s ease !important;
             transform: none !important;
-            line-height: 1.05 !important;
+            line-height: 1.1 !important;
+        }
+
+        [data-theme="light"] .dock-item,
+        [data-theme="light"] a.dock-item,
+        [data-theme="light"] a.dock-item:visited {
+            border: 1px solid rgba(0, 0, 0, 0.09) !important;
+            background: rgba(0, 0, 0, 0.03) !important;
         }
 
         .dock-item i {
-            font-size: 0.76rem !important;
+            font-size: 0.92rem !important;
         }
 
         .dock-item:hover,
         .dock-item:active,
         a.dock-item:hover,
         a.dock-item:active {
-            color: var(--accent) !important;
-            transform: none !important;
+            color: #ffffff !important;
+            border-color: rgba(56, 189, 248, 0.5) !important;
+            background: rgba(56, 189, 248, 0.14) !important;
+            transform: translateY(-1px) !important;
+        }
+
+        [data-theme="light"] .dock-item:hover,
+        [data-theme="light"] .dock-item:active,
+        [data-theme="light"] a.dock-item:hover,
+        [data-theme="light"] a.dock-item:active {
+            color: var(--primary) !important;
+            border-color: rgba(37, 99, 235, 0.45) !important;
+            background: rgba(37, 99, 235, 0.08) !important;
         }
 
         .dock-whatsapp,
         a.dock-whatsapp,
         a.dock-whatsapp:visited {
             color: #25D366 !important;
+            border-color: rgba(37, 211, 102, 0.3) !important;
+            background: rgba(37, 211, 102, 0.07) !important;
         }
         .dock-whatsapp:hover,
         .dock-whatsapp:active,
         a.dock-whatsapp:hover,
         a.dock-whatsapp:active {
-            color: #128C7E !important;
+            color: #25D366 !important;
+            border-color: #25D366 !important;
+            background: rgba(37, 211, 102, 0.18) !important;
+            transform: translateY(-1px) !important;
         }
 
         .dock-app,
@@ -2560,6 +2591,8 @@
         a.dock-app:visited {
             color: var(--accent) !important;
             font-weight: 700 !important;
+            border-color: rgba(56, 189, 248, 0.3) !important;
+            background: rgba(56, 189, 248, 0.06) !important;
         }
 
         @media (max-width: 768px) {
@@ -2586,6 +2619,8 @@
             .dock-item,
             a.dock-item,
             a.dock-item:visited {
+                border: none !important;
+                background: transparent !important;
                 font-size: 0.60rem !important;
                 padding: 3px 2px !important;
                 gap: 2px !important;
