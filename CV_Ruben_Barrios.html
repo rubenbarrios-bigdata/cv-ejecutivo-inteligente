@@ -664,8 +664,8 @@
         /* Stats Banner */
         .stats-banner {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
             margin-bottom: 25px;
         }
 
@@ -813,6 +813,8 @@
         .stat-card:nth-child(2) .stat-number { animation-delay: 0.5s; }
         .stat-card:nth-child(3) .stat-number { animation-delay: 1.0s; }
         .stat-card:nth-child(4) .stat-number { animation-delay: 1.5s; }
+        .stat-card:nth-child(5) .stat-number { animation-delay: 2.0s; }
+        .stat-card:nth-child(6) .stat-number { animation-delay: 2.5s; }
 
         .stat-card:hover .stat-number {
             animation-duration: 3s;
@@ -3175,7 +3177,7 @@
         <button class="btn-action" id="themeToggleBtn" onclick="toggleTheme()" title="Cambiar a Modo Claro" aria-label="Cambiar a Modo Claro">
             <i class="fas fa-sun" id="themeIcon"></i>
         </button>
-        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.2" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" onclick="if(typeof trackDocumentDownload==='function') trackDocumentDownload('pdf', 'CV_Ruben_Barrios_Analista_De_Datos.pdf');" title="Descargar CV en PDF" aria-label="Descargar CV en PDF">
+        <a href="CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.3" download="CV_Ruben_Barrios_Analista_De_Datos.pdf" target="_blank" class="btn-action btn-pdf-action" id="pdfDownloadBtn" onclick="if(typeof trackDocumentDownload==='function') trackDocumentDownload('pdf', 'CV_Ruben_Barrios_Analista_De_Datos.pdf');" title="Descargar CV en PDF" aria-label="Descargar CV en PDF">
             <i class="fas fa-file-pdf"></i>
         </a>
     </div>
@@ -3244,6 +3246,22 @@
                     <div class="stat-label">Análisis de Datos</div>
                 </div>
             </a>
+            <a href="#certificationsSection" class="stat-card" id="kpi-certificados" onclick="handleKpiClick('kpi-certificados', '9 Certificados', 'Análisis de Datos + IA', 'certificationsSection'); scrollToTarget('certificationsSection'); return false;" title="Ver Certificados en Análisis de Datos + IA">
+                <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                <div class="stat-content">
+                    <div class="stat-number">9 Certificados</div>
+                    <div class="stat-label">Análisis de Datos + IA</div>
+                </div>
+            </a>
+            <a href="#skillsSection" class="stat-card" id="kpi-herramientas" onclick="handleKpiClick('kpi-herramientas', '+10 Herramientas', 'Habilidades Técnicas + IA', 'skillsSection'); scrollToTarget('skillsSection'); return false;" title="Ver Habilidades Técnicas y herramientas">
+                <span class="stat-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                <div class="stat-icon"><i class="fas fa-tools"></i></div>
+                <div class="stat-content">
+                    <div class="stat-number">+10 Herramientas</div>
+                    <div class="stat-label">Habilidades Técnicas + IA</div>
+                </div>
+            </a>
         </div>
 
         <!-- Grilla Principal -->
@@ -3258,7 +3276,7 @@
                         <span class="section-title-left" id="perfilTitle"><i class="fas fa-user-tie"></i>Perfil Profesional</span>
                     </h2>
                     <p class="summary-text" id="perfilSummaryText">
-                        <strong>Analista de Datos</strong> con experiencia comprobada en análisis de métricas de fraude en logística para e-commerce y distribución de última milla (Last-Mile Fulfillment), complementada por más de 15 años de sólida trayectoria en el sector bancario, negocios internacionales y finanzas corporativas. Hoy combino esa visión estratégica con un enfoque resolutivo orientado a transformar requerimientos de negocio en soluciones analíticas de alto impacto mediante consultas SQL (MySQL, PostgreSQL), automatización con Python (pandas), diseño de dashboards ejecutivos en Power BI, Excel y Google Sheets, y analítica digital de productos con GTM, GA4, BigQuery y Data Studio.<br><br>
+                        <strong>Analista de Datos</strong> con experiencia comprobada en análisis de métricas de fraude en logística para e-commerce y distribución de última milla (Last-Mile Fulfillment), complementada por más de 15 años de sólida trayectoria en el sector bancario, negocios internacionales y finanzas corporativas. Hoy combino esa visión estratégica con un enfoque resolutivo orientado a transformar requerimientos de negocio en soluciones analíticas de alto impacto mediante consultas SQL (MySQL, PostgreSQL), limpieza de datos y automatización con Python (pandas), diseño de dashboards ejecutivos en Power BI, Excel y Google Sheets, y analítica digital de productos con GTM, GA4, BigQuery y Data Studio.<br><br>
                         Historial comprobado en optimización de indicadores de negocio, destacando la reducción del 80% en el ratio histórico de siniestralidad por fraude (de 0,150% a 0,030%) en operaciones de alto volumen mediante el monitoreo continuo de métricas. Perfil analítico orientado a la toma de decisiones basada en evidencia y trabajo multidisciplinario con equipos de Producto, Backend y Operaciones.
                     </p>
                 </div>
@@ -3538,7 +3556,7 @@
             <div class="right-column">
                 
                 <!-- Habilidades Técnicas -->
-                <div class="card">
+                <div class="card" id="skillsSection">
                     <h2 class="section-title">
                         <span class="section-title-left" id="skillsTitle"><i class="fas fa-tools"></i>Habilidades Técnicas</span>
                     </h2>
@@ -4188,14 +4206,18 @@ function initTelemetryListeners() {
             { id: "kpi-fraude", number: "+4 Años", label: "Analizando Métricas", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "Ver experiencia en Prevención de Fraudes", category: "Experiencia Especializada", impact: "Monitoreo continuo de transacciones, detección temprana de patrones anómalos y mitigación de contracargos en operaciones de alto volumen." },
             { id: "kpi-ratio", number: "0,150 ➔ 0,030", label: "Ratio Fraude (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "Ver logro en reducción de ratio de fraude", category: "Impacto de Negocio", impact: "Optimización de reglas y scoring de riesgo reduciendo drásticamente las pérdidas económicas directas y falsos positivos." },
             { id: "kpi-bancaria", number: "+15 Años", label: "Sector Bancario", icon: "fas fa-university", target: "exp-bancaria", tooltip: "Ver experiencia en sector bancario", category: "Trayectoria Financiera", impact: "Sólida comprensión del negocio financiero, comercio exterior, normativas cambiarias, conciliaciones y trazabilidad de fondos." },
-            { id: "kpi-proyectos", number: "9 Proyectos", label: "Análisis de Datos", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "Ver proyectos de Análisis de Datos", category: "Proyectos & Portafolio", impact: "Desarrollo de soluciones analíticas y dashboards interactivos en Power BI, Excel avanzado, SQL, Python, GTM, GA4 y Data Studio." }
+            { id: "kpi-proyectos", number: "9 Proyectos", label: "Análisis de Datos", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "Ver proyectos de Análisis de Datos", category: "Proyectos & Portafolio", impact: "Desarrollo de soluciones analíticas y dashboards interactivos en Power BI, Excel avanzado, SQL, Python, GTM, GA4 y Data Studio." },
+            { id: "kpi-certificados", number: "9 Certificados", label: "Análisis de Datos + IA", icon: "fas fa-certificate", target: "certificationsSection", tooltip: "Ver Certificados en Análisis de Datos + IA", category: "Certificaciones & Formación", impact: "Certificados profesionales emitidos por IBM SkillsBuild, GCBA Talento Tech, Analytics Way y Datax." },
+            { id: "kpi-herramientas", number: "+10 Herramientas", label: "Habilidades Técnicas + IA", icon: "fas fa-tools", target: "skillsSection", tooltip: "Ver Habilidades Técnicas y herramientas", category: "Stack Tecnológico", impact: "Dominio técnico en Power BI, SQL, Python, Excel, Google Sheets, GTM, GA4, BigQuery, Supabase y herramientas de IA Generativa." }
         ];
 
         const INLINE_KPIS_EN = [
             { id: "kpi-fraude", number: "+4 Years", label: "Fraud Metrics Analysis", icon: "fas fa-chart-column", target: "exp-fraude", tooltip: "View Fraud Prevention experience", category: "Specialized Experience", impact: "Continuous transaction monitoring, early anomaly detection, and chargeback mitigation in high-volume operations." },
             { id: "kpi-ratio", number: "0.150 ➔ 0.030", label: "Fraud Ratio (-80%)", icon: "fas fa-chart-line", target: "logro-fraude", tooltip: "View fraud ratio reduction achievement", category: "Business Impact", impact: "Risk rules and scoring optimization drastically reducing direct financial losses and false positives." },
             { id: "kpi-bancaria", number: "+15 Years", label: "Banking Sector", icon: "fas fa-university", target: "exp-bancaria", tooltip: "View banking sector experience", category: "Financial Career", impact: "Strong understanding of financial business, foreign trade, exchange regulations, reconciliations, and fund traceability." },
-            { id: "kpi-proyectos", number: "9 Projects", label: "Data Analytics", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "View Data Analytics projects", category: "Projects & Portfolio", impact: "Development of analytical solutions and interactive dashboards in Power BI, advanced Excel, SQL, Python, GTM, GA4, and Looker Studio." }
+            { id: "kpi-proyectos", number: "9 Projects", label: "Data Analytics", icon: "fas fa-diagram-project", target: "proyectosSection", tooltip: "View Data Analytics projects", category: "Projects & Portfolio", impact: "Development of analytical solutions and interactive dashboards in Power BI, advanced Excel, SQL, Python, GTM, GA4, and Looker Studio." },
+            { id: "kpi-certificados", number: "9 Certificates", label: "Data Analytics + AI", icon: "fas fa-certificate", target: "certificationsSection", tooltip: "View Certificates in Data Analytics + AI", category: "Certifications & Training", impact: "Professional credentials issued by IBM SkillsBuild, GCBA Talento Tech, Analytics Way, and Datax." },
+            { id: "kpi-herramientas", number: "+10 Tools", label: "Technical Skills + AI", icon: "fas fa-tools", target: "skillsSection", tooltip: "View Technical Skills & Tools", category: "Tech Stack", impact: "Technical mastery in Power BI, SQL, Python, Excel, Google Sheets, GTM, GA4, BigQuery, Supabase, and Generative AI workflows." }
         ];
 
         const fallbackKpis = {
@@ -4930,7 +4952,9 @@ function renderProjects(lang = 'es') {
                 'exp-fraude': { id: 'kpi-fraude', num: '+4 Años', label: 'Analizando Métricas' },
                 'logro-fraude': { id: 'kpi-ratio', num: '0,150 ➔ 0,030', label: 'Ratio Fraude (-80%)' },
                 'exp-bancaria': { id: 'kpi-bancaria', num: '+15 Años', label: 'Sector Bancario' },
-                'proyectosSection': { id: 'kpi-proyectos', num: '9 Proyectos', label: 'Análisis de Datos' }
+                'proyectosSection': { id: 'kpi-proyectos', num: '9 Proyectos', label: 'Análisis de Datos' },
+                'certificationsSection': { id: 'kpi-certificados', num: '9 Certificados', label: 'Análisis de Datos + IA' },
+                'skillsSection': { id: 'kpi-herramientas', num: '+10 Herramientas', label: 'Habilidades Técnicas + IA' }
             };
             if (kpiTargetMap[id] && (Date.now() - lastTrackedKpiTime > 800)) {
                 const info = kpiTargetMap[id];
@@ -4941,7 +4965,7 @@ function renderProjects(lang = 'es') {
 
             const el = document.getElementById(id);
             if (!el) return;
-            const blockAlign = (id === 'proyectosSection' || id === 'certificationsSection' || id === 'exp-bancaria') ? 'start' : 'center';
+            const blockAlign = (id === 'proyectosSection' || id === 'certificationsSection' || id === 'skillsSection' || id === 'exp-bancaria') ? 'start' : 'center';
             el.scrollIntoView({ behavior: 'smooth', block: blockAlign });
 
             // Limpiar cualquier resaltado anterior
@@ -4972,13 +4996,13 @@ function renderProjects(lang = 'es') {
                 themeDarkMob: 'Oscuro',
                 themeLightDesk: 'Claro',
                 themeLightMob: 'Claro',
-                pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.2',
+                pdfHref: 'CV_Ruben_Barrios_Analista_De_Datos.pdf?v=3.3',
                 pdfDownload: 'CV_Ruben_Barrios_Analista_De_Datos.pdf',
                 pdfTitle: 'Descargar CV en PDF',
                 pdfTextDesk: 'PDF',
                 pdfTextMob: 'PDF',
                 perfilTitle: '<i class="fas fa-user-tie"></i>Perfil Profesional',
-                perfilText: '<strong>Analista de Datos</strong> con experiencia comprobada en análisis de métricas de fraude en logística para e-commerce y distribución de última milla (Last-Mile Fulfillment), complementada por más de 15 años de sólida trayectoria en el sector bancario, negocios internacionales y finanzas corporativas. Hoy combino esa visión estratégica con un enfoque resolutivo orientado a transformar requerimientos de negocio en soluciones analíticas de alto impacto mediante consultas SQL (MySQL, PostgreSQL), automatización con Python (pandas), diseño de dashboards ejecutivos en Power BI, Excel y Google Sheets, y analítica digital de productos con GTM, GA4, BigQuery y Data Studio.<br><br>Historial comprobado en optimización de indicadores de negocio, destacando la reducción del 80% en el ratio histórico de siniestralidad por fraude (de 0,150% a 0,030%) en operaciones de alto volumen mediante el monitoreo continuo de métricas. Perfil analítico orientado a la toma de decisiones basada en evidencia y trabajo multidisciplinario con equipos de Producto, Backend y Operaciones.',
+                perfilText: '<strong>Analista de Datos</strong> con experiencia comprobada en análisis de métricas de fraude en logística para e-commerce y distribución de última milla (Last-Mile Fulfillment), complementada por más de 15 años de sólida trayectoria en el sector bancario, negocios internacionales y finanzas corporativas. Hoy combino esa visión estratégica con un enfoque resolutivo orientado a transformar requerimientos de negocio en soluciones analíticas de alto impacto mediante consultas SQL (MySQL, PostgreSQL), limpieza de datos y automatización con Python (pandas), diseño de dashboards ejecutivos en Power BI, Excel y Google Sheets, y analítica digital de productos con GTM, GA4, BigQuery y Data Studio.<br><br>Historial comprobado en optimización de indicadores de negocio, destacando la reducción del 80% en el ratio histórico de siniestralidad por fraude (de 0,150% a 0,030%) en operaciones de alto volumen mediante el monitoreo continuo de métricas. Perfil analítico orientado a la toma de decisiones basada en evidencia y trabajo multidisciplinario con equipos de Producto, Backend y Operaciones.',
                 expLaboralTitle: '<i class="fas fa-briefcase"></i>Experiencia Laboral',
                 innovaDate: 'Feb 2026 - Presente',
                 innovaDesc: `<ul>
@@ -5098,13 +5122,13 @@ function renderProjects(lang = 'es') {
                 themeDarkMob: 'Dark',
                 themeLightDesk: 'Light',
                 themeLightMob: 'Light',
-                pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf?v=3.2',
+                pdfHref: 'CV_Ruben_Barrios_Data_Analyst.pdf?v=3.3',
                 pdfDownload: 'CV_Ruben_Barrios_Data_Analyst.pdf',
                 pdfTitle: 'Download Resume in PDF',
                 pdfTextDesk: 'PDF',
                 pdfTextMob: 'PDF',
                 perfilTitle: '<i class="fas fa-user-tie"></i>Professional Summary',
-                perfilText: '<strong>Data Analyst</strong> with demonstrated experience analyzing fraud metrics in e-commerce logistics and last-mile fulfillment, complemented by over 15 years of solid experience in the banking sector, international business, and corporate finance. Today, I combine that strategic mindset with a solutions-oriented approach to transform business requirements into high-impact analytical solutions through SQL queries (MySQL, PostgreSQL), Python automation (pandas), executive dashboard design in Power BI, Excel, and Google Sheets, and digital product analytics with GTM, GA4, BigQuery, and Data Studio.<br><br>Proven track record in optimizing business indicators, highlighted by an 80% reduction in the historical fraud loss ratio (from 0.150% to 0.030%) in high-volume operations through continuous metrics monitoring. Analytical profile focused on evidence-based decision-making and cross-functional collaboration with Product, Backend, and Operations teams.',
+                perfilText: '<strong>Data Analyst</strong> with demonstrated experience analyzing fraud metrics in e-commerce logistics and last-mile fulfillment, complemented by over 15 years of solid experience in the banking sector, international business, and corporate finance. Today, I combine that strategic mindset with a solutions-oriented approach to transform business requirements into high-impact analytical solutions through SQL queries (MySQL, PostgreSQL), data cleaning and automation with Python (pandas), executive dashboard design in Power BI, Excel, and Google Sheets, and digital product analytics with GTM, GA4, BigQuery, and Data Studio.<br><br>Proven track record in optimizing business indicators, highlighted by an 80% reduction in the historical fraud loss ratio (from 0.150% to 0.030%) in high-volume operations through continuous metrics monitoring. Analytical profile focused on evidence-based decision-making and cross-functional collaboration with Product, Backend, and Operations teams.',
                 expLaboralTitle: '<i class="fas fa-briefcase"></i>Work Experience',
                 innovaDate: 'Feb 2026 - Present',
                 innovaDesc: `<ul>

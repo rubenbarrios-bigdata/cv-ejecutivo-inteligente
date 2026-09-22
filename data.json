@@ -50,6 +50,26 @@
       "tooltip": "Ver proyectos de Análisis de Datos",
       "category": "Proyectos & Portafolio",
       "impact": "Desarrollo de soluciones analíticas y dashboards interactivos en Power BI, Excel avanzado, SQL, Python, GTM, GA4 y Data Studio."
+    },
+    {
+      "id": "kpi-certificados",
+      "number": "9 Certificados",
+      "label": "Análisis de Datos + IA",
+      "icon": "fas fa-certificate",
+      "target": "certificationsSection",
+      "tooltip": "Ver Certificados en Análisis de Datos + IA",
+      "category": "Certificaciones & Formación",
+      "impact": "Certificados profesionales emitidos por IBM SkillsBuild, GCBA Talento Tech, Analytics Way y Datax."
+    },
+    {
+      "id": "kpi-herramientas",
+      "number": "+10 Herramientas",
+      "label": "Habilidades Técnicas + IA",
+      "icon": "fas fa-tools",
+      "target": "skillsSection",
+      "tooltip": "Ver Habilidades Técnicas y herramientas",
+      "category": "Stack Tecnológico",
+      "impact": "Dominio técnico en Power BI, SQL, Python, Excel, Google Sheets, GTM, GA4, BigQuery, Supabase y herramientas de IA Generativa."
     }
   ]
 }
