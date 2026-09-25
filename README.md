@@ -52,13 +52,13 @@ El repositorio incluye el **CV completo en formato HTML nativo**, estructurado c
 En el análisis de datos, el valor no reside únicamente en listar responsabilidades acumuladas, sino en **comunicar métricas de impacto, ratios de eficiencia y evidencia cuantificable** desde el primer contacto visual.
 
 Este CV fue concebido e implementado bajo los principios de diseño de un **Executive Dashboard**:
-- **Consumo rápido de insights**: El reclutador o líder de datos visualiza de inmediato 4 indicadores clave que resumen más de 16 años de trayectoria profesional combinada.
+- **Consumo rápido de insights**: El reclutador o líder de datos visualiza de inmediato 6 indicadores clave que resumen más de 16 años de trayectoria profesional combinada.
 - **Trazabilidad y navegación orientada a métricas**: Cada tarjeta de KPI actúa como un elemento interactivo que redirige hacia el contexto específico del proyecto o logro que respalda ese número.
 - **Mentalidad analítica en el código**: Demuestra cómo un analista aborda un producto digital, aplicando estándares modernos de desacoplamiento de datos y diseño responsive.
 
 ---
 
-## 📈 Los 4 KPIs Estratégicos
+## 📈 Los 6 KPIs Estratégicos
 
 | KPI | Métrica Clave | Enfoque de Negocio & Impacto Analítico |
 | :---: | :---: | :--- |
@@ -66,13 +66,15 @@ Este CV fue concebido e implementado bajo los principios de diseño de un **Exec
 | <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/chart-line.svg" width="22" height="22"></div> | **`0,150 ➔ 0,030`**<br><sub>Ratio Fraude (-80%)</sub> | **Impacto económico directo:** Descenso del **80%** en el ratio de fraude mediante la optimización de reglas de negocio, scoring predictivo y seguimiento periódico de indicadores de riesgo. |
 | <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/building-columns.svg" width="22" height="22"></div> | **`+15 Años`**<br><sub>Sector Bancario</sub> | **Sólido criterio de negocio y finanzas:** Dominio operativo en Comercio Exterior, Operaciones Internacionales, conciliaciones transaccionales y normativas cambiarias bancarias. |
 | <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/diagram-project.svg" width="22" height="22"></div> | **`9 Proyectos`**<br><sub>Análisis de Datos</sub> | **Soluciones analíticas aplicadas:** Portafolio técnico de dashboards y productos de datos en Power BI, DAX, Excel Avanzado, SQL, Python, GTM, GA4 y Data Studio. |
+| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/certificate.svg" width="22" height="22"></div> | **`9 Certificados`**<br><sub>Análisis de Datos + IA</sub> | **Certificaciones & Formación continua:** Credenciales profesionales verificadas emitidas por IBM SkillsBuild, GCBA Talento Tech, Analytics Way y Datax. |
+| <div align="center"><img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/screwdriver-wrench.svg" width="22" height="22"></div> | **`+10 Herramientas`**<br><sub>Habilidades Técnicas + IA</sub> | **Stack analítico integral:** Dominio práctico de Power BI, DAX, SQL (MySQL, PostgreSQL), Python (pandas), BigQuery, Supabase, GTM, GA4 e IA Generativa aplicada. |
 
 ---
 
 ## 📸 Capturas de Pantalla del CV Renderizado
 
 ### 1. Banner Ejecutivo de KPIs y Perfil Profesional
-Visualización en modo claro destacando los 4 indicadores clave y la síntesis de perfil:
+Visualización en modo claro destacando los 6 indicadores clave y la síntesis de perfil:
 
 <div align="center">
   <img src="screenshots/01_kpis_dashboard_header.png" alt="KPIs Dashboard Header" width="95%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
@@ -232,7 +234,7 @@ Para maximizar la visibilidad ante reclutadores técnicos y hiring managers en L
    - En tu perfil de LinkedIn, hacé clic en **Añadir sección** ➔ **Destacados** ➔ **+ Enlaces**.
    - Pegá la URL: `https://rubenbarrios-bigdata.github.io/cv-ejecutivo-inteligente/`
    - **Título**: `📊 CV Interactivo — Dashboard de Métricas Profesionales & Data Analytics`
-   - **Descripción**: `Mi CV interactivo estructurado como un dashboard ejecutivo con 4 KPIs clave sobre mi trayectoria en prevención de fraudes, finanzas bancarias y analítica de datos.`
+   - **Descripción**: `Mi CV interactivo estructurado como un dashboard ejecutivo con 6 KPIs clave sobre mi trayectoria en prevención de fraudes, finanzas bancarias y analítica de datos.`
    - Podés adjuntar como miniatura la captura `screenshots/01_kpis_dashboard_header.png`.
 
 2. **Enlace de Contacto / Encabezado de Perfil**:
